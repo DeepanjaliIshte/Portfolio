@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 import { Github, Linkedin } from "./Icons";
 import { portfolioData } from "../data/portfolioData";
+import Image from "next/image";
 
 export default function Hero() {
-  const { name, title, about, github, linkedin, email, status } = portfolioData.personalInfo;
+  const { name, title, about, github, linkedin, status } = portfolioData.personalInfo;
   const [currentTitle, setCurrentTitle] = useState(0);
 
   useEffect(() => {
@@ -56,7 +57,7 @@ export default function Hero() {
             <a href="#projects" className="px-8 py-3 rounded-full bg-gradient-to-r from-[#9d4edd] to-[#00b4d8] text-white font-medium hover:opacity-90 transition-opacity">
               View My Projects
             </a>
-            <a href="#contact" className="px-8 py-3 rounded-full bg-transparent border border-white/20 text-white font-medium hover:bg-white/10 transition-colors">
+            <a href="mailto:deepanjaliishte@gmail.com?subject=Portfolio%20Contact" className="px-8 py-3 rounded-full bg-transparent border border-white/20 text-white font-medium hover:bg-white/10 transition-colors">
               Contact Me
             </a>
           </div>
@@ -68,7 +69,11 @@ export default function Hero() {
             <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00b4d8] transition-colors">
               <Linkedin size={24} />
             </a>
-            <a href={`mailto:${email}`} className="text-gray-400 hover:text-[#9d4edd] transition-colors">
+            <a 
+              href="mailto:deepanjaliishte@gmail.com" 
+              aria-label="Email Deepanjali Ishte"
+              className="text-gray-400 hover:text-[#9d4edd] transition-colors"
+            >
               <Mail size={24} />
             </a>
           </div>
@@ -79,34 +84,45 @@ export default function Hero() {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative flex justify-center items-center h-[400px] md:h-[500px]"
+          className="relative flex justify-center items-center h-[500px] md:h-[600px] w-full mt-8 lg:mt-0"
         >
-          {/* Animated Gradient Rings */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div 
-              animate={{ rotate: 360 }} 
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full border border-[#9d4edd]/30 border-dashed"
-            />
-            <motion.div 
-              animate={{ rotate: -360 }} 
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[250px] h-[250px] md:w-[320px] md:h-[320px] rounded-full border border-[#00b4d8]/40 border-dotted"
-            />
-          </div>
-          
-          {/* Profile Picture Placeholder */}
-          <div className="relative z-10 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-gray-800 bg-gray-900 shadow-2xl flex items-center justify-center text-4xl font-bold text-gray-700">
-            {/* If we had an image it would be here */}
-            <span className="text-gradient">DI</span>
-          </div>
+          {/* Radial Gradient Glows */}
+          <div className="absolute w-[300px] h-[300px] bg-[#9d4edd]/20 rounded-full blur-[80px] z-0"></div>
+          <div className="absolute w-[200px] h-[200px] bg-[#00b4d8]/20 rounded-full blur-[60px] translate-y-12 z-0"></div>
+
+          {/* Profile Picture Container */}
+          <motion.div 
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="relative z-10 w-[280px] h-[330px] md:w-[420px] md:h-[500px] rounded-[2rem] overflow-hidden p-1 bg-gradient-to-br from-[#9d4edd] via-[#00b4d8] to-[#9d4edd] background-animate shadow-2xl"
+          >
+            <div className="relative w-full h-full rounded-[1.85rem] overflow-hidden bg-[#0B1121]">
+              <Image 
+                src="/images/profile.png" 
+                alt="Deepanjali Ishte - Software Developer" 
+                width={500} 
+                height={600} 
+                priority
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+          </motion.div>
 
           {/* Floating Badges */}
-          <FloatingBadge tech="Java" top="10%" left="10%" delay={0} />
-          <FloatingBadge tech="Spring Boot" top="15%" right="10%" delay={1} />
-          <FloatingBadge tech="Python" bottom="20%" left="5%" delay={2} />
-          <FloatingBadge tech="React" bottom="15%" right="15%" delay={3} />
-          <FloatingBadge tech="Flutter" top="80%" left="40%" delay={1.5} />
+          <FloatingBadge tech="Java" top="10%" left="0%" delay={0} />
+          <FloatingBadge tech="Spring Boot" top="20%" right="-5%" delay={1} />
+          <FloatingBadge tech="Python" bottom="25%" left="-10%" delay={2} />
+          <FloatingBadge tech="React" bottom="15%" right="0%" delay={3} />
+          
+          {/* Status Badge */}
+          <motion.div 
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-[5%] md:bottom-[2%] left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-2 bg-[#050505]/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-lg"
+          >
+            <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+            <span className="text-sm font-medium text-white whitespace-nowrap">Open to Opportunities</span>
+          </motion.div>
         </motion.div>
       </div>
     </section>
@@ -118,7 +134,7 @@ function FloatingBadge({ tech, top, left, right, bottom, delay }) {
     <motion.div
       animate={{ y: [0, -15, 0] }}
       transition={{ duration: 4, repeat: Infinity, delay: delay, ease: "easeInOut" }}
-      className="absolute glass px-4 py-2 rounded-xl text-sm font-medium text-[#00b4d8] shadow-lg border border-white/10 z-20"
+      className="absolute glass px-4 py-2 rounded-xl text-sm font-medium text-[#00b4d8] shadow-lg border border-white/10 z-20 hidden sm:block"
       style={{ top, left, right, bottom }}
     >
       {tech}

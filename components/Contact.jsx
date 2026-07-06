@@ -6,37 +6,7 @@ import { Github, Linkedin } from "./Icons";
 import { portfolioData } from "../data/portfolioData";
 
 export default function Contact() {
-  const { email, location, linkedin, github } = portfolioData.personalInfo;
-  
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  });
-  
-  const [status, setStatus] = useState({ type: "", message: "" });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      setStatus({ type: "error", message: "Please fill in all required fields." });
-      return;
-    }
-    
-    // Simulate sending
-    setStatus({ type: "success", message: "Message sent successfully!" });
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    
-    setTimeout(() => {
-      setStatus({ type: "", message: "" });
-    }, 5000);
-  };
+  const { location, linkedin, github } = portfolioData.personalInfo;
 
   return (
     <section id="contact" className="py-24 relative bg-grid">
@@ -75,8 +45,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 mb-1">Email</p>
-                    <a href={`mailto:${email}`} className="text-white font-medium hover:text-[#00b4d8] transition-colors break-all">
-                      {email}
+                    <a 
+                      href="mailto:deepanjaliishte@gmail.com" 
+                      aria-label="Email Deepanjali Ishte"
+                      className="text-white font-medium hover:text-[#00b4d8] transition-colors break-all"
+                    >
+                      deepanjaliishte@gmail.com
                     </a>
                   </div>
                 </div>
@@ -126,7 +100,15 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <form onSubmit={handleSubmit} className="glass p-8 rounded-2xl border border-white/10 space-y-6">
+            <form 
+              action="https://formsubmit.co/deepanjaliishte@gmail.com" 
+              method="POST"
+              className="glass p-8 rounded-2xl border border-white/10 space-y-6"
+            >
+              <input type="hidden" name="_subject" value="New Portfolio Contact Message" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">Name *</label>
@@ -134,8 +116,7 @@ export default function Contact() {
                     type="text" 
                     id="name"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
+                    required
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#9d4edd] focus:ring-1 focus:ring-[#9d4edd] transition-all"
                     placeholder="Your name"
                   />
@@ -146,8 +127,7 @@ export default function Contact() {
                     type="email" 
                     id="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
+                    required
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#9d4edd] focus:ring-1 focus:ring-[#9d4edd] transition-all"
                     placeholder="Your email"
                   />
@@ -160,8 +140,7 @@ export default function Contact() {
                   type="text" 
                   id="subject"
                   name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
+                  required
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#9d4edd] focus:ring-1 focus:ring-[#9d4edd] transition-all"
                   placeholder="Subject"
                 />
@@ -172,19 +151,12 @@ export default function Contact() {
                 <textarea 
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
+                  required
                   rows={5}
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#9d4edd] focus:ring-1 focus:ring-[#9d4edd] transition-all resize-none"
                   placeholder="Write your message here..."
                 ></textarea>
               </div>
-
-              {status.message && (
-                <div className={`p-4 rounded-lg text-sm font-medium ${status.type === 'success' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'}`}>
-                  {status.message}
-                </div>
-              )}
               
               <button 
                 type="submit"

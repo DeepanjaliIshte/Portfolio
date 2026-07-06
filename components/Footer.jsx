@@ -24,7 +24,11 @@ export default function Footer() {
           <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#00b4d8] transition-colors">
             <Linkedin size={20} />
           </a>
-          <a href={`mailto:${email}`} className="text-gray-500 hover:text-[#9d4edd] transition-colors">
+          <a 
+            href="mailto:deepanjaliishte@gmail.com" 
+            aria-label="Email Deepanjali Ishte"
+            className="text-gray-500 hover:text-[#9d4edd] transition-colors"
+          >
             <Mail size={20} />
           </a>
         </div>
