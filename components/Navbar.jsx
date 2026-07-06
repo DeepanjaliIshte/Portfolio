@@ -50,9 +50,10 @@ export default function Navbar() {
             </a>
           ))}
           <a 
-            href="/resume.pdf" 
-            download
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-medium transition-all glow-border"
+            href="/resume/Deepanjali_Ishte_Resume.pdf" 
+            download="Deepanjali_Ishte_Resume.pdf"
+            aria-label="Download Deepanjali Ishte Resume"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 border border-white/10 hover:scale-105 hover:border-cyan-400/50 hover:shadow-[0_0_15px_rgba(157,78,221,0.5)] text-white text-sm font-medium transition-all duration-300"
           >
             <Download size={16} /> Resume
           </a>
@@ -84,9 +85,10 @@ export default function Navbar() {
               </a>
             ))}
             <a 
-              href="/resume.pdf" 
-              download
-              className="flex items-center gap-2 px-6 py-3 mt-4 rounded-full bg-[#9d4edd] hover:bg-[#7b2cbf] text-white text-sm font-medium transition-colors"
+              href="/resume/Deepanjali_Ishte_Resume.pdf" 
+              download="Deepanjali_Ishte_Resume.pdf"
+              aria-label="Download Deepanjali Ishte Resume"
+              className="flex items-center gap-2 px-6 py-3 mt-4 rounded-full bg-gradient-to-r from-[#9d4edd] to-[#00b4d8] border border-transparent hover:scale-105 hover:border-white/50 hover:shadow-[0_0_15px_rgba(0,180,216,0.6)] text-white text-sm font-medium transition-all duration-300"
             >
               <Download size={16} /> Download Resume
             </a>

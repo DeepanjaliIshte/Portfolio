@@ -41,9 +41,9 @@ export default function About() {
             
             <div className="pt-6">
               <a 
-                href="/resume.pdf" 
-                download
-                className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium transition-all glow-border"
+                href="/resume/Deepanjali_Ishte_Resume.pdf" 
+                download="Deepanjali_Ishte_Resume.pdf"
+                className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/10 border border-white/10 hover:scale-105 hover:border-cyan-400/50 hover:shadow-[0_0_20px_rgba(157,78,221,0.5)] text-white font-medium transition-all duration-300"
               >
                 <Download size={20} /> Download Resume
               </a>
