@@ -94,17 +94,15 @@ export default function Hero() {
           <motion.div 
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="relative z-10 w-[320px] h-[400px] md:w-[420px] md:h-[520px] mx-auto background-animate shadow-2xl"
+            className="relative mx-auto w-[320px] h-[400px] md:w-[420px] md:h-[520px] shadow-2xl z-10"
           >
-            <div className="absolute -inset-[3px] rounded-[2rem] bg-gradient-to-br from-purple-500 via-blue-500 to-cyan-400" />
-            <div className="relative w-full h-full rounded-[2rem] overflow-hidden bg-slate-950">
-              <Image 
-                src="/images/profile.png" 
-                alt="Deepanjali Ishte - Software Developer" 
-                fill
-                priority
-                sizes="(max-width: 768px) 320px, 420px"
-                className="object-cover object-top z-10"
+            <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-purple-500 via-blue-500 to-cyan-400" />
+
+            <div className="absolute inset-0 rounded-[2rem] overflow-hidden">
+              <img
+                src="/images/profile.png"
+                alt="Deepanjali Ishte"
+                className="w-full h-full object-cover object-top"
               />
             </div>
           </motion.div>
