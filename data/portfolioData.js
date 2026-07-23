@@ -1,3 +1,6 @@
+const isProd = process.env.NODE_ENV === "production";
+const basePath = isProd ? "/Portfolio" : "";
+
 export const portfolioData = {
   personalInfo: {
     name: "Deepanjali R. Ishte",
@@ -67,7 +70,7 @@ export const portfolioData = {
       tech: ["Python", "Pandas", "NumPy", "REST APIs", "MySQL"],
       liveDemo: "https://trading.landmarksol.com",
       github: null,
-      image: "/images/projects/trading.jpg"
+      image: `${basePath}/images/projects/trading.jpg`
     },
     {
       title: "Java Education Website",
@@ -75,7 +78,7 @@ export const portfolioData = {
       tech: ["Next.js", "React.js", "Spring Boot", "REST APIs", "MySQL"],
       liveDemo: "https://v0-java-education-website.vercel.app",
       github: null,
-      image: "/images/projects/education.jpg"
+      image: `${basePath}/images/projects/education.jpg`
     },
     {
       title: "VPN Client Simulator",
@@ -83,7 +86,7 @@ export const portfolioData = {
       tech: ["Java", "Swing", "OOP"],
       liveDemo: null,
       github: "https://github.com/DeepanjaliIshte/Java-VPN-Project",
-      image: "/images/projects/vpn.jpg"
+      image: `${basePath}/images/projects/vpn.jpg`
     }
   ],
   education: [
@@ -91,7 +94,7 @@ export const portfolioData = {
       degree: "Master of Computer Applications",
       institution: "P.E.S. Modern College of Engineering, Pune",
       duration: "2024 – 2026",
-      details: "First Year: 64%"
+      details: "CGPA : 6.24%"
     },
     {
       degree: "Bachelor of Computer Applications",

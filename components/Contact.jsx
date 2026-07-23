@@ -8,6 +8,22 @@ import { portfolioData } from "../data/portfolioData";
 export default function Contact() {
   const { location, linkedin, github } = portfolioData.personalInfo;
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   return (
     <section id="contact" className="py-24 relative bg-grid">
       <div className="container mx-auto px-6 md:px-12">
@@ -105,9 +121,18 @@ export default function Contact() {
               method="POST"
               className="glass p-8 rounded-2xl border border-white/10 space-y-6"
             >
-              <input type="hidden" name="_subject" value="New Portfolio Contact Message" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_subject" defaultValue="New Portfolio Contact Message" />
+              <input
+                type="text"
+                name="_honey"
+                defaultValue=""
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="hidden"
+              />
+              <input type="hidden" name="_template" defaultValue="table" />
+              <input type="hidden" name="_url" defaultValue="https://portfolio-b7f7prgc4-deepaishte-3500s-projects.vercel.app/" />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -117,6 +142,8 @@ export default function Contact() {
                     id="name"
                     name="name"
                     required
+                    value={formData.name ?? ""}
+                    onChange={handleChange}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#9d4edd] focus:ring-1 focus:ring-[#9d4edd] transition-all"
                     placeholder="Your name"
                   />
@@ -128,6 +155,8 @@ export default function Contact() {
                     id="email"
                     name="email"
                     required
+                    value={formData.email ?? ""}
+                    onChange={handleChange}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#9d4edd] focus:ring-1 focus:ring-[#9d4edd] transition-all"
                     placeholder="Your email"
                   />
@@ -141,6 +170,8 @@ export default function Contact() {
                   id="subject"
                   name="subject"
                   required
+                  value={formData.subject ?? ""}
+                  onChange={handleChange}
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#9d4edd] focus:ring-1 focus:ring-[#9d4edd] transition-all"
                   placeholder="Subject"
                 />
@@ -152,6 +183,8 @@ export default function Contact() {
                   id="message"
                   name="message"
                   required
+                  value={formData.message ?? ""}
+                  onChange={handleChange}
                   rows={5}
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#9d4edd] focus:ring-1 focus:ring-[#9d4edd] transition-all resize-none"
                   placeholder="Write your message here..."
