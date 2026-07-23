@@ -94,13 +94,13 @@ export const portfolioData = {
       degree: "Master of Computer Applications",
       institution: "P.E.S. Modern College of Engineering, Pune",
       duration: "2024 – 2026",
-      details: "CGPA : 6.24%"
+      details: "CGPA : 6.24"
     },
     {
       degree: "Bachelor of Computer Applications",
       institution: "Rajmata Jijau Shikshan Prasarak Mandal ACS College",
       duration: "2018 – 2021",
-      details: "Percentage: 70%"
+      details: "CGPA: 7.80"
     }
   ],
   certifications: [
