@@ -3,9 +3,6 @@ import { motion } from "framer-motion";
 import { MapPin, GraduationCap, Briefcase, Sparkles, Download } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 
-const isProd = process.env.NODE_ENV === "production";
-const basePath = isProd ? "/Portfolio" : "";
-
 export default function About() {
   const { about, location, status } = portfolioData.personalInfo;
 
@@ -44,7 +41,7 @@ export default function About() {
             
             <div className="pt-6">
               <a 
-                href={`${basePath}/resume/Deepanjali_Ishte_Resume.pdf`} 
+                href="/resume/Deepanjali_Ishte_Resume.pdf" 
                 download="Deepanjali_Ishte_Resume.pdf"
                 className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/10 border border-white/10 hover:scale-105 hover:border-cyan-400/50 hover:shadow-[0_0_20px_rgba(157,78,221,0.5)] text-white font-medium transition-all duration-300"
               >

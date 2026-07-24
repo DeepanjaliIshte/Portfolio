@@ -6,9 +6,6 @@ import { Github, Linkedin } from "./Icons";
 import { portfolioData } from "../data/portfolioData";
 import Image from "next/image";
 
-const isProd = process.env.NODE_ENV === "production";
-const basePath = isProd ? "/Portfolio" : "";
-
 export default function Hero() {
   const { name, title, about, github, linkedin, status } = portfolioData.personalInfo;
   const [currentTitle, setCurrentTitle] = useState(0);
@@ -103,7 +100,7 @@ export default function Hero() {
 
             <div className="absolute inset-0 rounded-[2rem] overflow-hidden">
               <img
-                src={`${basePath}/images/profile.png`}
+                src="/images/profile.png"
                 alt="Deepanjali Ishte"
                 className="w-full h-full object-cover object-top"
               />

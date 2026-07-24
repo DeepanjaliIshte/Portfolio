@@ -1,6 +1,3 @@
-const isProd = process.env.NODE_ENV === "production";
-const basePath = isProd ? "/Portfolio" : "";
-
 export const portfolioData = {
   personalInfo: {
     name: "Deepanjali R. Ishte",
@@ -70,7 +67,7 @@ export const portfolioData = {
       tech: ["Python", "Pandas", "NumPy", "REST APIs", "MySQL"],
       liveDemo: "https://trading.landmarksol.com",
       github: null,
-      image: `${basePath}/images/projects/trading.jpg`
+      image: "/images/projects/trading.jpg"
     },
     {
       title: "Java Education Website",
@@ -78,7 +75,7 @@ export const portfolioData = {
       tech: ["Next.js", "React.js", "Spring Boot", "REST APIs", "MySQL"],
       liveDemo: "https://v0-java-education-website.vercel.app",
       github: null,
-      image: `${basePath}/images/projects/education.jpg`
+      image: "/images/projects/education.jpg"
     },
     {
       title: "VPN Client Simulator",
@@ -86,7 +83,7 @@ export const portfolioData = {
       tech: ["Java", "Swing", "OOP"],
       liveDemo: null,
       github: "https://github.com/DeepanjaliIshte/Java-VPN-Project",
-      image: `${basePath}/images/projects/vpn.jpg`
+      image: "/images/projects/vpn.jpg"
     }
   ],
   education: [
