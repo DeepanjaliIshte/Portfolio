@@ -1,13 +1,10 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production";
-
 const nextConfig = {
-  output: "export",
-  images: {
-    unoptimized: true
-  },
-  basePath: isProd ? "/Portfolio" : "",
-  assetPrefix: isProd ? "/Portfolio/" : ""
+  // If you are relying on next/image unoptimized, you can keep this, 
+  // but Vercel supports image optimization natively.
+  // images: {
+  //   unoptimized: true
+  // },
 };
 
 export default nextConfig;
