@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useReducedMotion, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
 import { ArrowDown, Download, Mail, Activity, Crosshair } from "lucide-react";
-import { Github, Linkedin } from "./Icons";
+import { Github, Linkedin, Instagram } from "./Icons";
 import { portfolioData } from "../data/portfolioData";
 import Image from "next/image";
 
@@ -164,7 +164,7 @@ function MagneticButton({ children, className, href, download, ariaLabel, onClic
 }
 
 export default function Hero() {
-  const { name, roles, heroHeadline, quote, github, linkedin, email, status, resumeUrl, resumeDownloadName } =
+  const { name, roles, heroHeadline, quote, github, linkedin, instagram, email, status, resumeUrl, resumeDownloadName } =
     portfolioData.personalInfo;
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [showHoloHud, setShowHoloHud] = useState(false);
@@ -367,6 +367,18 @@ export default function Hero() {
               >
                 <Linkedin size={18} className="group-hover:text-[#00F0FF] transition-colors" />
                 <span className="hidden sm:inline">LinkedIn</span>
+              </motion.a>
+
+              <motion.a
+                href={instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.15, y: -2 }}
+                className="group flex items-center gap-1.5 text-zinc-400 hover:text-white text-xs font-mono transition-colors"
+                aria-label="DeepCodeWarriors Instagram"
+              >
+                <Instagram size={18} className="group-hover:text-[#00F0FF] transition-colors" />
+                <span className="hidden sm:inline">Instagram</span>
               </motion.a>
 
               <motion.a

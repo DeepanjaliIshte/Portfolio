@@ -1,11 +1,11 @@
 "use client";
 import { ArrowUp, Mail } from "lucide-react";
 import { motion } from "framer-motion";
-import { Github, Linkedin } from "./Icons";
+import { Github, Linkedin, Instagram } from "./Icons";
 import { portfolioData } from "../data/portfolioData";
 
 export default function Footer() {
-  const { github, linkedin, email, name } = portfolioData.personalInfo;
+  const { github, linkedin, instagram, email, name } = portfolioData.personalInfo;
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -50,6 +50,17 @@ export default function Footer() {
             aria-label="LinkedIn Profile"
           >
             <Linkedin size={18} />
+          </motion.a>
+
+          <motion.a
+            href={instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.15, y: -2 }}
+            className="text-zinc-400 hover:text-[#00F0FF] transition-colors cursor-pointer"
+            aria-label="DeepCodeWarriors Instagram"
+          >
+            <Instagram size={18} />
           </motion.a>
 
           <motion.a

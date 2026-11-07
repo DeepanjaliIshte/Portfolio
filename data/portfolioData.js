@@ -16,6 +16,7 @@ export const portfolioData = {
     email: "deepanjalishte@gmail.com",
     linkedin: "https://www.linkedin.com/in/deepanjali-ishte-071691201",
     github: "https://github.com/DeepanjaliIshte",
+    instagram: "https://www.instagram.com/deepcodewarriors/",
     portfolioUrl: "https://portfolio-lemon-phi-47.vercel.app",
     status: "Available for Opportunities",
     targetRoles: "Seeking Junior Java Developer or Associate Software Engineer opportunity",

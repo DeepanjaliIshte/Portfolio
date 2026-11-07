@@ -11,11 +11,11 @@ import {
   Sparkles,
   ExternalLink,
 } from "lucide-react";
-import { Github, Linkedin } from "./Icons";
+import { Github, Linkedin, Instagram } from "./Icons";
 import { portfolioData } from "../data/portfolioData";
 
 export default function Contact() {
-  const { location, linkedin, github, email } = portfolioData.personalInfo;
+  const { location, linkedin, github, instagram, email } = portfolioData.personalInfo;
   const shouldReduceMotion = useReducedMotion();
   const [copied, setCopied] = useState(false);
 
@@ -305,6 +305,37 @@ export default function Contact() {
                   </h4>
                   <span className="text-xs font-mono text-zinc-500">
                     DeepanjaliIshte
+                  </span>
+                </div>
+              </div>
+              <div className="w-9 h-9 rounded-full bg-[#0B132B] border border-cyan-900/40 flex items-center justify-center text-zinc-400 group-hover:text-white group-hover:border-[#00F0FF]/50 transition-colors">
+                <ExternalLink size={15} />
+              </div>
+            </motion.a>
+
+            {/* Instagram Profile Card (DeepCodeWarriors) */}
+            <motion.a
+              href={instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -3, borderColor: "rgba(0, 240, 255, 0.4)" }}
+              whileTap={{ scale: 0.98 }}
+              className="p-6 rounded-2xl bg-[#080D1A]/95 border border-cyan-900/40 transition-all shadow-xl flex items-center justify-between group cursor-pointer"
+              aria-label="DeepCodeWarriors Instagram Profile"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-[#0B132B] border border-cyan-900/50 flex items-center justify-center text-[#00F0FF] flex-shrink-0 group-hover:bg-[#00F0FF]/15 group-hover:border-[#00F0FF]/50 transition-colors">
+                  <Instagram size={22} />
+                </div>
+                <div>
+                  <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-400/80 mb-0.5">
+                    Coding Community &amp; Tech
+                  </div>
+                  <h4 className="text-base font-bold text-white group-hover:text-[#00F0FF] transition-colors">
+                    DeepCodeWarriors
+                  </h4>
+                  <span className="text-xs font-mono text-zinc-500">
+                    @deepcodewarriors
                   </span>
                 </div>
               </div>
