@@ -1,14 +1,28 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-
 export const metadata = {
-  title: "Deepanjali Ishte | Software Developer Portfolio",
-  description: "Portfolio of Deepanjali Ishte, a Software Developer and MCA Graduate skilled in Java, Spring Boot, Python, React, Flutter, REST APIs, and MySQL.",
+  title: "Deepanjali Ishte | Java Developer | Software Developer",
+  description: "Portfolio of Deepanjali Ishte, a Java Developer & Software Developer specializing in Core Java, Spring Boot, REST APIs, SQL, and Full-Stack Web Development.",
+  keywords: [
+    "Deepanjali Ishte",
+    "Java Developer",
+    "Software Developer",
+    "Junior Java Developer",
+    "Spring Boot Developer",
+    "Core Java",
+    "JDBC",
+    "REST APIs",
+    "SQL",
+    "MySQL",
+    "Backend Developer",
+    "Full Stack Developer",
+    "React.js",
+    "Next.js",
+    "Pune"
+  ],
   openGraph: {
-    title: "Deepanjali Ishte | Software Developer Portfolio",
-    description: "Portfolio of Deepanjali Ishte, a Software Developer and MCA Graduate skilled in Java, Spring Boot, Python, React, Flutter, REST APIs, and MySQL.",
+    title: "Deepanjali Ishte | Java Developer & Software Developer",
+    description: "Building scalable enterprise applications, robust backend architectures, and meaningful digital experiences. Explore projects, technical skills, and experience.",
     type: "website",
     locale: "en_IN",
   },
@@ -20,7 +34,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={`${inter.variable} font-sans antialiased bg-[#050505] text-white selection:bg-[#9d4edd]/30 selection:text-white`}>
+      <body className="font-sans antialiased bg-[#030712] text-[#EDEDED] selection:bg-[#00F0FF]/30 selection:text-white min-h-screen">
         {children}
       </body>
     </html>

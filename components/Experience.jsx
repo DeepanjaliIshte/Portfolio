@@ -1,127 +1,198 @@
 "use client";
-import { motion } from "framer-motion";
-import { Briefcase, CheckCircle2 } from "lucide-react";
+import { useRef } from "react";
+import { motion, useScroll, useSpring, useTransform, useReducedMotion } from "framer-motion";
+import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react";
+import { portfolioData } from "../data/portfolioData";
 
 export default function Experience() {
-  const responsibilities = [
-    "Developed web and mobile applications using Flutter and React.",
-    "Built backend APIs using Python and integrated REST APIs.",
-    "Managed databases using Firebase and Supabase.",
-    "Collaborated with the development team using Git for version control.",
-    "Participated in debugging, testing, and application enhancement.",
-    "Contributed to scalable and user-friendly software solutions."
-  ];
+  const { experience } = portfolioData;
+  const containerRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
 
-  const technologies = [
-    "Flutter", "React", "Python", "REST APIs", "Firebase", "Supabase", "Git"
-  ];
+  // Scroll-linked timeline line animation
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 70%", "end 60%"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  // Calculate pixel or percentage position of the laser head
+  const laserTop = useTransform(scaleY, [0, 1], ["0%", "100%"]);
 
   return (
     <section id="experience" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 flex justify-center">
-        
-        <div className="w-full max-w-[1100px]">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Professional <span className="text-gradient">Experience</span>
-            </h2>
-            <p className="text-gray-400 text-lg">
-              My professional journey and hands-on software development experience.
-            </p>
-          </motion.div>
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col mb-16"
+        >
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-xs font-mono font-semibold tracking-widest text-[#00F0FF] uppercase">
+              03 // Journey
+            </span>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="h-[1px] w-12 bg-[#00F0FF]/40 origin-left"
+            />
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white uppercase">
+            Work <span className="text-zinc-400 font-light">Experience</span>
+          </h2>
+          <p className="text-zinc-400 text-sm sm:text-base max-w-2xl mt-3 font-normal">
+            Real-world software development engineering, cross-platform applications, and backend systems delivery.
+          </p>
+        </motion.div>
 
-          {/* Main Experience Card */}
-          <motion.div 
-            initial={{ opacity: 0, y: 40, scale: 0.98 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            whileHover={{ y: -4 }}
-            className="relative w-full rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 p-8 md:p-12 hover:border-[#9d4edd]/50 hover:shadow-[0_10px_40px_-15px_rgba(157,78,221,0.3)] transition-all duration-300 z-10"
-          >
-            {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-[#9d4edd]/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+        {/* Animated Timeline Container */}
+        <div ref={containerRef} className="relative max-w-5xl mx-auto">
+          {/* Static Background Track */}
+          <div className="absolute left-4 md:left-8 top-6 bottom-6 w-[2px] bg-white/[0.08] pointer-events-none" />
 
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
-              
-              {/* Left Side: Role Info (30%) */}
-              <div className="w-full lg:w-[30%] relative flex flex-col pt-2">
-                {/* Timeline Line */}
-                <div className="absolute left-0 top-[2rem] bottom-0 w-0.5 bg-gradient-to-b from-[#9d4edd] to-[#00b4d8] hidden lg:block"></div>
-                
-                {/* Timeline Dot */}
-                <motion.div 
-                  animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -left-[5px] top-[2.2rem] w-3 h-3 rounded-full bg-[#00b4d8] shadow-[0_0_12px_#00b4d8] hidden lg:block"
-                ></motion.div>
+          {/* Dynamic Scroll-Linked Glowing Cyan Line */}
+          {!shouldReduceMotion && (
+            <>
+              <motion.div
+                className="absolute left-4 md:left-8 top-6 bottom-6 w-[2px] bg-gradient-to-b from-[#0066FF] via-[#00F0FF] to-[#0066FF] origin-top pointer-events-none z-10 shadow-[0_0_12px_#00F0FF]"
+                style={{ scaleY }}
+              />
 
-                <div className="lg:pl-8 space-y-4">
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-white/5 border border-white/10 mb-2 shadow-[0_0_20px_rgba(157,78,221,0.2)]">
-                    <Briefcase className="text-[#9d4edd]" size={28} />
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-2xl font-bold text-white leading-tight mb-2">Software Developer Intern</h3>
-                    <p className="text-[#00b4d8] font-semibold text-lg mb-1">Landmark Techedge Pvt. Ltd.</p>
-                    <p className="text-gray-400 text-sm">December 2025 – June 2026</p>
-                  </div>
+              {/* Laser Spark Traveling Head */}
+              <motion.div
+                className="absolute left-4 md:left-8 w-2 h-2 -ml-1 rounded-full bg-white shadow-[0_0_12px_#00F0FF,0_0_20px_#38BDF8] pointer-events-none z-20"
+                style={{ top: laserTop }}
+              />
+            </>
+          )}
 
-                  <div className="pt-2">
-                    <span className="inline-block px-4 py-2 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">
-                      6 Months Internship Experience
-                    </span>
-                  </div>
-                </div>
+          {experience.map((exp, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 40, filter: shouldReduceMotion ? "none" : "blur(6px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="relative pl-12 md:pl-20"
+            >
+              {/* Timeline Glowing Milestone Node */}
+              <div className="absolute left-[9px] md:left-[25px] top-6 -translate-x-1/2 flex items-center justify-center z-20">
+                <span className="relative flex h-5 w-5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00F0FF] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-5 w-5 bg-[#030712] border-2 border-[#00F0FF] items-center justify-center shadow-[0_0_15px_#00F0FF]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF]" />
+                  </span>
+                </span>
               </div>
 
-              {/* Right Side: Responsibilities (70%) */}
-              <div className="w-full lg:w-[70%]">
-                <h4 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Key Responsibilities</h4>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
-                  {responsibilities.map((resp, idx) => (
-                    <motion.div 
-                      key={idx}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: 0.2 + (idx * 0.1) }}
-                      className="flex items-start gap-3 bg-white/[0.02] p-4 rounded-xl border border-white/5"
+              {/* Main Experience Card with 3D Depth */}
+              <motion.div
+                whileHover={{ y: -5, borderColor: "rgba(0, 240, 255, 0.45)" }}
+                transition={{ duration: 0.3 }}
+                className="rounded-2xl p-6 sm:p-8 md:p-10 bg-[#080D1A]/90 border border-cyan-900/30 shadow-2xl relative overflow-hidden group transition-all"
+              >
+                {/* Subtle Cyan Glow on Hover */}
+                <div className="absolute top-0 right-0 w-80 h-80 bg-[#00F0FF]/5 rounded-bl-full pointer-events-none group-hover:bg-[#00F0FF]/10 transition-colors duration-500" />
+
+                {/* Role Header Info */}
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-cyan-900/30">
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F0FF]/10 border border-[#00F0FF]/30 text-[#00F0FF] text-xs font-mono uppercase tracking-wider mb-2">
+                      <Briefcase size={12} />
+                      <span>{exp.type}</span>
+                    </div>
+
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight group-hover:text-[#00F0FF] transition-colors">
+                      {exp.role}
+                    </h3>
+
+                    <div className="text-lg font-semibold text-[#38BDF8] mt-1">
+                      {exp.company}
+                    </div>
+                  </div>
+
+                  {/* Metadata Chips */}
+                  <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-400">
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0B132B] border border-cyan-900/40 transition-colors"
                     >
-                      <CheckCircle2 className="text-[#9d4edd] flex-shrink-0 mt-0.5" size={18} />
-                      <p className="text-gray-300 text-sm leading-relaxed">{resp}</p>
+                      <Calendar size={13} className="text-[#00F0FF]" />
+                      <span>{exp.period}</span>
                     </motion.div>
-                  ))}
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0B132B] border border-cyan-900/40 transition-colors"
+                    >
+                      <MapPin size={13} className="text-[#00F0FF]" />
+                      <span>{exp.location}</span>
+                    </motion.div>
+                  </div>
                 </div>
 
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-400 mb-4 uppercase tracking-wider">Technologies Used</h4>
-                  <div className="flex flex-wrap gap-3">
-                    {technologies.map((tech, idx) => (
-                      <motion.div 
-                        key={idx}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                {/* Description */}
+                <p className="text-zinc-300 text-sm sm:text-base leading-relaxed py-5 font-normal">
+                  {exp.description}
+                </p>
+
+                {/* Deliverables / Responsibilities Grid with Stagger */}
+                <div className="space-y-3 mb-8">
+                  <div className="text-xs font-mono uppercase tracking-widest text-cyan-400/80 mb-2">
+                    Key Engineering Contributions:
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {exp.highlights.map((highlight, hIdx) => (
+                      <motion.div
+                        key={hIdx}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: 0.4 + (idx * 0.05) }}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        className="px-4 py-2 rounded-full bg-white/5 border border-gray-600/50 text-sm font-medium text-gray-200 hover:border-[#9d4edd] hover:shadow-[0_0_15px_rgba(157,78,221,0.3)] hover:text-white transition-all cursor-default"
+                        transition={{ duration: 0.4, delay: 0.08 * hIdx }}
+                        whileHover={{ x: 4, borderColor: "rgba(0, 240, 255, 0.4)" }}
+                        className="p-3.5 rounded-xl bg-[#0B132B]/70 border border-cyan-900/30 transition-all flex items-start gap-3 cursor-default"
                       >
-                        {tech}
+                        <CheckCircle2 size={16} className="text-[#00F0FF] flex-shrink-0 mt-0.5" />
+                        <span className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+                          {highlight}
+                        </span>
                       </motion.div>
                     ))}
                   </div>
                 </div>
-              </div>
-            </div>
-          </motion.div>
+
+                {/* Technologies Stack Tags with Micro-Hover */}
+                <div>
+                  <div className="text-xs font-mono uppercase tracking-widest text-cyan-400/80 mb-3">
+                    Verified Tools &amp; Technologies:
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {exp.technologies.map((tech, tIdx) => (
+                      <motion.span
+                        key={tIdx}
+                        whileHover={{ scale: 1.06, y: -2 }}
+                        whileTap={{ scale: 0.96 }}
+                        className="px-3 py-1.5 rounded-full bg-[#0B132B] border border-cyan-900/40 text-xs font-mono text-zinc-300 hover:text-[#00F0FF] hover:border-[#00F0FF]/60 hover:bg-[#00F0FF]/10 transition-all cursor-default shadow-sm"
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
