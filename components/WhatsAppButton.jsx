@@ -21,7 +21,7 @@ export default function WhatsAppButton() {
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 8, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="hidden sm:flex mr-3 bg-white px-3.5 py-2 rounded-2xl text-xs font-mono font-bold text-[#292326] shadow-md border border-[#EBDCD2] whitespace-nowrap items-center gap-2"
+            className="hidden sm:flex mr-3 bg-white dark:bg-[#231C28] px-3.5 py-2 rounded-2xl text-xs font-mono font-bold text-[#292326] dark:text-[#F8F3F6] shadow-md border border-[#EBDCD2] dark:border-[#3D3147] whitespace-nowrap items-center gap-2"
           >
             <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
             <span>Connect on WhatsApp ✨</span>

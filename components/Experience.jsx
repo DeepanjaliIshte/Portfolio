@@ -8,7 +8,7 @@ export default function Experience() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section id="experience" className="py-12 md:py-16 relative overflow-hidden bg-[#FFF9F3]">
+    <section id="experience" className="py-12 md:py-16 relative overflow-hidden bg-[#FFF9F3] dark:bg-[#171219] transition-colors duration-300">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header with Viewport Reveal */}
@@ -20,17 +20,17 @@ export default function Experience() {
           className="flex flex-col mb-10 max-w-3xl"
         >
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-xs font-mono font-bold tracking-widest text-[#A13A64] uppercase flex items-center gap-1.5">
+            <span className="text-xs font-mono font-bold tracking-widest text-[#A13A64] dark:text-[#F8C8DB] uppercase flex items-center gap-1.5">
               <span>03 // Work Experience</span>
-              <span className="text-[#C9B6F2]">✨</span>
+              <span className="text-[#C9B6F2] dark:text-[#D4C4F7]">✨</span>
             </span>
             <div className="h-[2px] w-14 bg-gradient-to-r from-[#F6B8D0] via-[#FFC9A9] to-[#C9B6F2] rounded-full" />
           </div>
-          <h2 className="font-serif text-4xl sm:text-5xl font-extrabold tracking-tight text-[#292326]">
+          <h2 className="font-serif text-4xl sm:text-5xl font-extrabold tracking-tight text-[#292326] dark:text-[#F8F3F6]">
             Engineering Practice &amp; <br />
             <span className="rainbow-gradient-text italic font-normal">Industry Contribution</span>
           </h2>
-          <p className="mt-3 text-base text-[#292326] font-normal leading-relaxed">
+          <p className="mt-3 text-base text-[#292326] dark:text-[#C5B9C8] font-normal leading-relaxed">
             Real-world software development engineering, cross-platform applications, and backend systems delivery.
           </p>
         </motion.div>
@@ -51,7 +51,7 @@ export default function Experience() {
             >
               {/* Cute Timeline Marker Dot */}
               <div className="absolute left-[9px] md:left-[25px] top-7 -translate-x-1/2 flex items-center justify-center z-20">
-                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#F6B8D0] to-[#C9B6F2] border-3 border-[#FFF9F3] shadow-xs flex items-center justify-center">
+                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#F6B8D0] to-[#C9B6F2] border-3 border-[#FFF9F3] dark:border-[#171219] shadow-xs flex items-center justify-center transition-colors">
                   <div className="w-1.5 h-1.5 rounded-full bg-white" />
                 </div>
               </div>
@@ -60,54 +60,54 @@ export default function Experience() {
               <motion.div
                 whileHover={shouldReduceMotion ? {} : { y: -2 }}
                 transition={{ duration: 0.2 }}
-                className="p-7 sm:p-9 rounded-2xl bg-white border border-[#EBDCD2] shadow-2xs hover:border-[#F6B8D0] hover:shadow-[0_6px_22px_rgba(246,184,208,0.2)] transition-all"
+                className="p-7 sm:p-9 rounded-2xl bg-white dark:bg-[#231C28] border border-[#EBDCD2] dark:border-[#3D3147] shadow-2xs hover:border-[#F6B8D0] dark:hover:border-[#C9B6F2] hover:shadow-[0_6px_22px_rgba(246,184,208,0.2)] dark:hover:shadow-black/40 transition-all"
               >
                 {/* Header Information */}
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-[#EBDCD2]">
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-[#EBDCD2] dark:border-[#3D3147]">
                   <div>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F6B8D0]/30 border border-[#F6B8D0]/80 text-[#8C244C] text-xs font-mono uppercase tracking-wider mb-2 font-bold shadow-2xs">
-                      <Briefcase size={12} className="text-[#8C244C]" />
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F6B8D0]/30 dark:bg-[#F6B8D0]/15 border border-[#F6B8D0]/80 dark:border-[#F6B8D0]/40 text-[#8C244C] dark:text-[#F8C8DB] text-xs font-mono uppercase tracking-wider mb-2 font-bold shadow-2xs">
+                      <Briefcase size={12} className="text-[#8C244C] dark:text-[#F8C8DB]" />
                       <span>{exp.type}</span>
                     </div>
 
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#292326] tracking-tight">
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#292326] dark:text-[#F8F3F6] tracking-tight">
                       {exp.role}
                     </h3>
 
-                    <div className="text-base font-bold text-[#A13A64] mt-1 font-mono flex items-center gap-1.5">
+                    <div className="text-base font-bold text-[#A13A64] dark:text-[#F8C8DB] mt-1 font-mono flex items-center gap-1.5">
                       <span>{exp.company}</span>
-                      <span className="text-xs text-[#C9B6F2]">✦</span>
+                      <span className="text-xs text-[#C9B6F2] dark:text-[#D4C4F7]">✦</span>
                     </div>
                   </div>
 
                   {/* Metadata Chips in IBM Plex Mono */}
-                  <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#292326] font-medium">
-                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFF9F3] border border-[#EBDCD2]">
-                      <Calendar size={13} className="text-[#A13A64]" />
+                  <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#292326] dark:text-[#F8F3F6] font-medium">
+                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFF9F3] dark:bg-[#1D1722] border border-[#EBDCD2] dark:border-[#3D3147]">
+                      <Calendar size={13} className="text-[#A13A64] dark:text-[#F8C8DB]" />
                       <span>{exp.period}</span>
                     </div>
-                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFF9F3] border border-[#EBDCD2]">
-                      <MapPin size={13} className="text-[#A13A64]" />
+                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFF9F3] dark:bg-[#1D1722] border border-[#EBDCD2] dark:border-[#3D3147]">
+                      <MapPin size={13} className="text-[#A13A64] dark:text-[#F8C8DB]" />
                       <span>{exp.location}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Narrative Summary */}
-                <p className="text-[#292326] text-base leading-[1.68] py-5 font-normal">
+                <p className="text-[#292326] dark:text-[#F8F3F6] text-base leading-[1.68] py-5 font-normal">
                   {exp.description}
                 </p>
 
                 {/* Key Contributions */}
                 <div className="space-y-3 mb-6">
-                  <div className="text-xs font-mono uppercase tracking-wider text-[#A13A64] font-bold flex items-center gap-1">
+                  <div className="text-xs font-mono uppercase tracking-wider text-[#A13A64] dark:text-[#F8C8DB] font-bold flex items-center gap-1">
                     <span>// Key Engineering Contributions:</span>
-                    <span className="text-[#C9B6F2]">✨</span>
+                    <span className="text-[#C9B6F2] dark:text-[#D4C4F7]">✨</span>
                   </div>
                   <div className="grid grid-cols-1 gap-2.5">
                     {exp.highlights.map((item, hIdx) => (
-                      <div key={hIdx} className="flex items-start gap-3 text-sm text-[#292326] leading-relaxed">
-                        <CheckCircle2 size={16} className="text-[#196B45] shrink-0 mt-0.5" />
+                      <div key={hIdx} className="flex items-start gap-3 text-sm text-[#292326] dark:text-[#C5B9C8] leading-relaxed">
+                        <CheckCircle2 size={16} className="text-[#196B45] dark:text-[#C7EDE0] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </div>
                     ))}
@@ -115,14 +115,14 @@ export default function Experience() {
                 </div>
 
                 {/* Technology Stack Tags */}
-                <div className="pt-5 border-t border-[#EBDCD2] flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#A13A64] font-bold mr-2">
+                <div className="pt-5 border-t border-[#EBDCD2] dark:border-[#3D3147] flex flex-wrap items-center gap-2">
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#A13A64] dark:text-[#F8C8DB] font-bold mr-2">
                     Technologies:
                   </span>
                   {exp.technologies.map((tech, tIdx) => (
                     <span
                       key={tIdx}
-                      className="px-3 py-1 rounded-full bg-[#FFF9F3] border border-[#EBDCD2] text-xs font-mono font-semibold text-[#292326] hover:border-[#F6B8D0] transition-colors"
+                      className="px-3 py-1 rounded-full bg-[#FFF9F3] dark:bg-[#1D1722] border border-[#EBDCD2] dark:border-[#3D3147] text-xs font-mono font-semibold text-[#292326] dark:text-[#F8F3F6] hover:border-[#F6B8D0] dark:hover:border-[#C9B6F2] transition-colors"
                     >
                       {tech}
                     </span>

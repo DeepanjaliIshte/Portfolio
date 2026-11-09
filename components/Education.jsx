@@ -9,17 +9,17 @@ export default function Education() {
 
   const eduTheme = [
     {
-      iconBg: "bg-[#C9B6F2]/35 border-[#C9B6F2]/80 text-[#4E378C]",
-      hoverBorder: "hover:border-[#C9B6F2]",
+      iconBg: "bg-[#C9B6F2]/35 dark:bg-[#C9B6F2]/15 border-[#C9B6F2]/80 dark:border-[#C9B6F2]/40 text-[#4E378C] dark:text-[#D4C4F7]",
+      hoverBorder: "hover:border-[#C9B6F2] dark:hover:border-[#D4C4F7]",
     },
     {
-      iconBg: "bg-[#F6B8D0]/35 border-[#F6B8D0]/80 text-[#8C244C]",
-      hoverBorder: "hover:border-[#F6B8D0]",
+      iconBg: "bg-[#F6B8D0]/35 dark:bg-[#F6B8D0]/15 border-[#F6B8D0]/80 dark:border-[#F6B8D0]/40 text-[#8C244C] dark:text-[#F8C8DB]",
+      hoverBorder: "hover:border-[#F6B8D0] dark:hover:border-[#F8C8DB]",
     },
   ];
 
   return (
-    <section id="education" className="py-12 md:py-16 relative overflow-hidden bg-[#FFF9F3]">
+    <section id="education" className="py-12 md:py-16 relative overflow-hidden bg-[#FFF9F3] dark:bg-[#171219] transition-colors duration-300">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header with Viewport Reveal */}
@@ -31,17 +31,17 @@ export default function Education() {
           className="flex flex-col mb-10 max-w-3xl"
         >
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-xs font-mono font-bold tracking-widest text-[#A13A64] uppercase flex items-center gap-1.5">
+            <span className="text-xs font-mono font-bold tracking-widest text-[#A13A64] dark:text-[#F8C8DB] uppercase flex items-center gap-1.5">
               <span>05 // Academic Foundations</span>
-              <span className="text-[#C9B6F2]">✨</span>
+              <span className="text-[#C9B6F2] dark:text-[#D4C4F7]">✨</span>
             </span>
             <div className="h-[2px] w-14 bg-gradient-to-r from-[#F6B8D0] via-[#FFC9A9] to-[#C9B6F2] rounded-full" />
           </div>
-          <h2 className="font-serif text-4xl sm:text-5xl font-extrabold tracking-tight text-[#292326]">
+          <h2 className="font-serif text-4xl sm:text-5xl font-extrabold tracking-tight text-[#292326] dark:text-[#F8F3F6]">
             Computer Science Degrees &amp; <br />
             <span className="rainbow-gradient-text italic font-normal">Academic Rigor</span>
           </h2>
-          <p className="mt-3 text-base text-[#292326] font-normal leading-relaxed">
+          <p className="mt-3 text-base text-[#292326] dark:text-[#C5B9C8] font-normal leading-relaxed">
             Formal educational background providing foundational depth in algorithms, relational DBMS, and software design principles.
           </p>
         </motion.div>
@@ -58,7 +58,7 @@ export default function Education() {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.6, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={shouldReduceMotion ? {} : { y: -3 }}
-                className={`p-7 sm:p-9 rounded-2xl bg-white border border-[#EBDCD2] ${theme.hoverBorder} transition-all flex flex-col justify-between shadow-2xs hover:shadow-[0_8px_25px_rgba(201,182,242,0.2)] group`}
+                className={`p-7 sm:p-9 rounded-2xl bg-white dark:bg-[#231C28] border border-[#EBDCD2] dark:border-[#3D3147] ${theme.hoverBorder} transition-all flex flex-col justify-between shadow-2xs hover:shadow-[0_8px_25px_rgba(201,182,242,0.2)] dark:hover:shadow-black/40 group`}
               >
                 <div>
                   {/* Header Icon & Year */}
@@ -67,36 +67,36 @@ export default function Education() {
                       <GraduationCap size={24} />
                     </div>
 
-                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FFF9F3] border border-[#EBDCD2] text-xs font-mono text-[#A13A64] font-bold">
-                      <Calendar size={13} className="text-[#A13A64]" />
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FFF9F3] dark:bg-[#1D1722] border border-[#EBDCD2] dark:border-[#3D3147] text-xs font-mono text-[#A13A64] dark:text-[#F8C8DB] font-bold">
+                      <Calendar size={13} className="text-[#A13A64] dark:text-[#F8C8DB]" />
                       <span>{edu.period}</span>
                     </div>
                   </div>
 
                   {/* Degree & Institution */}
-                  <span className="inline-block text-xs font-mono uppercase tracking-wider text-[#A13A64] mb-1 font-bold flex items-center gap-1">
+                  <span className="inline-block text-xs font-mono uppercase tracking-wider text-[#A13A64] dark:text-[#F8C8DB] mb-1 font-bold flex items-center gap-1">
                     <span>{edu.credential}</span>
-                    <span className="text-xs text-[#C9B6F2]">✦</span>
+                    <span className="text-xs text-[#C9B6F2] dark:text-[#D4C4F7]">✦</span>
                   </span>
 
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#292326] mb-2 group-hover:text-[#A13A64] transition-colors leading-snug">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#292326] dark:text-[#F8F3F6] mb-2 group-hover:text-[#A13A64] dark:group-hover:text-[#F8C8DB] transition-colors leading-snug">
                     {edu.degree}
                   </h3>
 
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#292326] font-medium mb-4">
-                    <Building size={14} className="text-[#8C244C]" />
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#292326] dark:text-[#F8F3F6] font-medium mb-4">
+                    <Building size={14} className="text-[#8C244C] dark:text-[#F8C8DB]" />
                     <span>{edu.institution}</span>
                   </div>
 
-                  <p className="text-sm text-[#292326] leading-relaxed font-normal mb-6">
+                  <p className="text-sm text-[#292326] dark:text-[#C5B9C8] leading-relaxed font-normal mb-6">
                     {edu.highlight}
                   </p>
                 </div>
 
                 {/* Status footer */}
-                <div className="pt-4 border-t border-[#EBDCD2] flex items-center justify-between text-xs font-mono text-[#292326]">
-                  <span className="font-medium text-[#574F54]">{edu.affiliation}</span>
-                  <span className="text-[#8C244C] font-bold flex items-center gap-1">
+                <div className="pt-4 border-t border-[#EBDCD2] dark:border-[#3D3147] flex items-center justify-between text-xs font-mono text-[#292326] dark:text-[#F8F3F6]">
+                  <span className="font-medium text-[#574F54] dark:text-[#C5B9C8]">{edu.affiliation}</span>
+                  <span className="text-[#8C244C] dark:text-[#F8C8DB] font-bold flex items-center gap-1">
                     <span>• Verified</span>
                     <span className="text-xs">✨</span>
                   </span>

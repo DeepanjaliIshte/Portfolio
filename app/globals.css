@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600&display=swap');
 @import "tailwindcss";
 
+/* Enable class-based dark mode in Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-warm-ivory: #FFF9F3;
   --color-pastel-pink: #F6B8D0;
@@ -10,6 +13,14 @@
   --color-peach: #FFC9A9;
   --color-butter-yellow: #F9E7A0;
   --color-charcoal: #292326;
+
+  /* Midnight Plum Dark Mode Canvas & Surfaces */
+  --color-plum-canvas: #171219;
+  --color-plum-surface: #231C28;
+  --color-plum-subtle: #1D1722;
+  --color-plum-border: #3D3147;
+  --color-plum-text: #F8F3F6;
+  --color-plum-muted: #C5B9C8;
 
   --color-card-bg: #FFFFFF;
   --color-card-border: #EBDCD2;
@@ -23,6 +34,12 @@
 :root {
   --background: #FFF9F3;
   --foreground: #292326;
+  --canvas: #FFF9F3;
+  --surface: #FFFFFF;
+  --surface-subtle: #FFF9F3;
+  --border-color: #EBDCD2;
+  --text-main: #292326;
+  --text-muted: #574F54;
   --warm-ivory: #FFF9F3;
   --pastel-pink: #F6B8D0;
   --lavender: #C9B6F2;
@@ -31,6 +48,17 @@
   --peach: #FFC9A9;
   --butter-yellow: #F9E7A0;
   --charcoal: #292326;
+}
+
+.dark {
+  --background: #171219;
+  --foreground: #F8F3F6;
+  --canvas: #171219;
+  --surface: #231C28;
+  --surface-subtle: #1D1722;
+  --border-color: #3D3147;
+  --text-main: #F8F3F6;
+  --text-muted: #C5B9C8;
 }
 
 * {
@@ -42,6 +70,10 @@ html {
   color-scheme: light;
 }
 
+html.dark {
+  color-scheme: dark;
+}
+
 body {
   background-color: #FFF9F3;
   color: #292326;
@@ -49,6 +81,12 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #171219;
+  color: #F8F3F6;
 }
 
 /* Cute Rainbow Focus accessibility outline */
@@ -65,10 +103,16 @@ body {
 ::-webkit-scrollbar-track {
   background: #FFF9F3;
 }
+.dark ::-webkit-scrollbar-track {
+  background: #171219;
+}
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #F6B8D0, #FFC9A9, #F9E7A0, #B9E6D0, #A9D8F5, #C9B6F2);
   border-radius: 9999px;
   border: 2px solid #FFF9F3;
+}
+.dark ::-webkit-scrollbar-thumb {
+  border: 2px solid #171219;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #F6B8D0, #C9B6F2);
@@ -78,6 +122,10 @@ body {
 ::selection {
   background: #F6B8D0;
   color: #292326;
+}
+.dark ::selection {
+  background: #C9B6F2;
+  color: #171219;
 }
 
 /* Typography Font Families */
@@ -102,10 +150,20 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.dark .rainbow-gradient-text {
+  background: linear-gradient(135deg, #F8C8DB 0%, #FFD6BF 20%, #FAEEB8 42%, #C7EDE0 64%, #BBE0F8 82%, #D4C4F7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .rainbow-badge {
   background: #FFFFFF;
   border: 1px solid #EBDCD2;
   transition: all 0.25s ease;
+}
+.dark .rainbow-badge {
+  background: #231C28;
+  border-color: #3D3147;
 }
 .rainbow-badge:hover {
   border-color: #C9B6F2;
