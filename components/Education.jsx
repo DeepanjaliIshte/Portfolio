@@ -1,134 +1,111 @@
 "use client";
 import { motion, useReducedMotion } from "framer-motion";
-import { GraduationCap, Calendar, Building } from "lucide-react";
+import { GraduationCap, Calendar, Building, Sparkles } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 
 export default function Education() {
   const { education } = portfolioData;
   const shouldReduceMotion = useReducedMotion();
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
+  const eduTheme = [
+    {
+      iconBg: "bg-[#C9B6F2]/35 border-[#C9B6F2]/80 text-[#4E378C]",
+      hoverBorder: "hover:border-[#C9B6F2]",
     },
-  };
-
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: shouldReduceMotion ? 0 : 30,
-      filter: shouldReduceMotion ? "none" : "blur(6px)",
+    {
+      iconBg: "bg-[#F6B8D0]/35 border-[#F6B8D0]/80 text-[#8C244C]",
+      hoverBorder: "hover:border-[#F6B8D0]",
     },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  };
+  ];
 
   return (
-    <section id="education" className="py-24 relative overflow-hidden">
+    <section id="education" className="py-12 md:py-16 relative overflow-hidden bg-[#FFF9F3]">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        {/* Section Header */}
+        
+        {/* Section Header with Viewport Reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col mb-16"
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col mb-10 max-w-3xl"
         >
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-xs font-mono font-semibold tracking-widest text-[#00F0FF] uppercase">
-              05 // Education
+            <span className="text-xs font-mono font-bold tracking-widest text-[#A13A64] uppercase flex items-center gap-1.5">
+              <span>05 // Academic Foundations</span>
+              <span className="text-[#C9B6F2]">✨</span>
             </span>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="h-[1px] w-12 bg-[#00F0FF]/40 origin-left"
-            />
+            <div className="h-[2px] w-14 bg-gradient-to-r from-[#F6B8D0] via-[#FFC9A9] to-[#C9B6F2] rounded-full" />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white uppercase">
-            Academic <span className="text-zinc-400 font-light">Qualifications</span>
+          <h2 className="font-serif text-4xl sm:text-5xl font-extrabold tracking-tight text-[#292326]">
+            Computer Science Degrees &amp; <br />
+            <span className="rainbow-gradient-text italic font-normal">Academic Rigor</span>
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base max-w-2xl mt-3 font-normal">
-            Formal computer science degrees establishing strong foundations in systems, algorithms, and software engineering.
+          <p className="mt-3 text-base text-[#292326] font-normal leading-relaxed">
+            Formal educational background providing foundational depth in algorithms, relational DBMS, and software design principles.
           </p>
         </motion.div>
 
-        {/* Education Cards Grid with Stagger */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
-        >
-          {education.map((edu, idx) => (
-            <motion.div
-              key={idx}
-              variants={cardVariants}
-              whileHover={{ y: -5, borderColor: "rgba(0, 240, 255, 0.4)" }}
-              className="rounded-2xl p-6 sm:p-8 bg-[#080D1A]/90 border border-cyan-900/30 transition-all flex flex-col justify-between group relative overflow-hidden cursor-default shadow-xl"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#00F0FF]/5 rounded-bl-full pointer-events-none group-hover:bg-[#00F0FF]/10 transition-colors duration-500" />
+        {/* Education Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {education.map((edu, idx) => {
+            const theme = eduTheme[idx % eduTheme.length];
+            return (
+              <motion.div
+                key={idx}
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={shouldReduceMotion ? {} : { y: -3 }}
+                className={`p-7 sm:p-9 rounded-2xl bg-white border border-[#EBDCD2] ${theme.hoverBorder} transition-all flex flex-col justify-between shadow-2xs hover:shadow-[0_8px_25px_rgba(201,182,242,0.2)] group`}
+              >
+                <div>
+                  {/* Header Icon & Year */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className={`w-12 h-12 rounded-2xl ${theme.iconBg} border flex items-center justify-center transition-transform group-hover:scale-105`}>
+                      <GraduationCap size={24} />
+                    </div>
 
-              <div>
-                {/* Header Icon & Year Badge */}
-                <div className="flex items-center justify-between mb-6">
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-12 h-12 rounded-xl bg-[#0B132B] border border-cyan-900/40 flex items-center justify-center text-[#00F0FF] group-hover:border-[#00F0FF]/40 group-hover:bg-[#00F0FF]/10 transition-colors"
-                  >
-                    <GraduationCap size={24} />
-                  </motion.div>
-
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B132B] border border-cyan-900/40 text-xs font-mono text-zinc-300">
-                    <Calendar size={12} className="text-[#00F0FF]" />
-                    <span>{edu.period}</span>
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FFF9F3] border border-[#EBDCD2] text-xs font-mono text-[#A13A64] font-bold">
+                      <Calendar size={13} className="text-[#A13A64]" />
+                      <span>{edu.period}</span>
+                    </div>
                   </div>
+
+                  {/* Degree & Institution */}
+                  <span className="inline-block text-xs font-mono uppercase tracking-wider text-[#A13A64] mb-1 font-bold flex items-center gap-1">
+                    <span>{edu.credential}</span>
+                    <span className="text-xs text-[#C9B6F2]">✦</span>
+                  </span>
+
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#292326] mb-2 group-hover:text-[#A13A64] transition-colors leading-snug">
+                    {edu.degree}
+                  </h3>
+
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#292326] font-medium mb-4">
+                    <Building size={14} className="text-[#8C244C]" />
+                    <span>{edu.institution}</span>
+                  </div>
+
+                  <p className="text-sm text-[#292326] leading-relaxed font-normal mb-6">
+                    {edu.highlight}
+                  </p>
                 </div>
 
-                {/* Degree Name */}
-                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2 group-hover:text-[#00F0FF] transition-colors">
-                  {edu.degree}
-                </h3>
-
-                {/* Institution & University */}
-                <div className="flex items-start gap-2 text-sm text-zinc-300 font-medium mb-1">
-                  <Building size={16} className="text-[#00F0FF] flex-shrink-0 mt-0.5" />
-                  <span>{edu.institution}</span>
+                {/* Status footer */}
+                <div className="pt-4 border-t border-[#EBDCD2] flex items-center justify-between text-xs font-mono text-[#292326]">
+                  <span className="font-medium text-[#574F54]">{edu.affiliation}</span>
+                  <span className="text-[#8C244C] font-bold flex items-center gap-1">
+                    <span>• Verified</span>
+                    <span className="text-xs">✨</span>
+                  </span>
                 </div>
+              </motion.div>
+            );
+          })}
+        </div>
 
-                <div className="text-xs font-mono text-cyan-400/70 pl-6 mb-4">
-                  {edu.affiliation}
-                </div>
-
-                {/* Curriculum Highlight */}
-                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal mb-6">
-                  {edu.highlight}
-                </p>
-              </div>
-
-              {/* Card Footer Credential */}
-              <div className="pt-4 border-t border-cyan-900/30 flex items-center justify-between text-xs font-mono">
-                <span className="text-zinc-500 uppercase tracking-wider">Qualification:</span>
-                <span className="px-3 py-1 rounded bg-[#0B132B] border border-cyan-900/40 text-[#00F0FF] font-medium">
-                  {edu.credential || "Degree in Computer Applications"}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

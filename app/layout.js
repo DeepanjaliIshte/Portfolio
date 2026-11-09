@@ -1,28 +1,22 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Deepanjali Ishte | Java Developer | Software Developer",
-  description: "Portfolio of Deepanjali Ishte, a Java Developer & Software Developer specializing in Core Java, Spring Boot, REST APIs, SQL, and Full-Stack Web Development.",
+  title: "Deepanjali's Portfolio | Deepanjali R. Ishte — Java Developer",
+  description: "Personal developer portfolio of Deepanjali R. Ishte, Java Developer and Software Developer specializing in Core Java, Spring Boot, REST APIs, and SQL.",
   keywords: [
+    "Deepanjali R. Ishte",
     "Deepanjali Ishte",
     "Java Developer",
     "Software Developer",
-    "Junior Java Developer",
-    "Spring Boot Developer",
+    "Spring Boot",
     "Core Java",
-    "JDBC",
     "REST APIs",
     "SQL",
-    "MySQL",
-    "Backend Developer",
-    "Full Stack Developer",
-    "React.js",
-    "Next.js",
     "Pune"
   ],
   openGraph: {
-    title: "Deepanjali Ishte | Java Developer & Software Developer",
-    description: "Building scalable enterprise applications, robust backend architectures, and meaningful digital experiences. Explore projects, technical skills, and experience.",
+    title: "Deepanjali's Portfolio — Deepanjali R. Ishte",
+    description: "Java Developer & Software Developer specializing in Core Java, Spring Boot, and robust backend engineering.",
     type: "website",
     locale: "en_IN",
   },
@@ -34,7 +28,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className="font-sans antialiased bg-[#030712] text-[#EDEDED] selection:bg-[#00F0FF]/30 selection:text-white min-h-screen">
+      <body className="font-sans antialiased bg-[#FFF9F3] text-[#292326] selection:bg-[#F6B8D0] selection:text-[#292326] min-h-screen">
         {children}
       </body>
     </html>

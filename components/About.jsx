@@ -1,6 +1,6 @@
 "use client";
 import { motion, useReducedMotion } from "framer-motion";
-import { Download, Code2, Server, Database, ShieldCheck, MapPin } from "lucide-react";
+import { Download, Code2, Server, Database, ShieldCheck, MapPin, GraduationCap, Sparkles } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 
 export default function About() {
@@ -9,199 +9,185 @@ export default function About() {
 
   const pillars = [
     {
-      icon: <Code2 size={22} className="text-[#00F0FF]" />,
-      title: "Core Java & OOP Architecture",
+      icon: <Code2 size={20} className="text-[#8C244C]" />,
+      iconBg: "bg-[#F6B8D0]/35 border-[#F6B8D0]/80",
+      title: "Core Java & OOP",
       description:
-        "Building robust application logic using Object-Oriented principles, Collections Framework, Multithreading, and Exception Handling.",
+        "Building robust object-oriented systems with multithreading, collections, exception hierarchies, and algorithms.",
     },
     {
-      icon: <Server size={22} className="text-[#38BDF8]" />,
-      title: "Spring Boot & REST APIs",
+      icon: <Server size={20} className="text-[#196B45]" />,
+      iconBg: "bg-[#B9E6D0]/40 border-[#B9E6D0]/80",
+      title: "Spring Boot & REST",
       description:
-        "Engineering high-performance RESTful APIs, backend services, JDBC persistence, and Maven build pipelines.",
+        "Developing scalable microservices, REST APIs, dependency injection, and clean controller-service-repository patterns.",
     },
     {
-      icon: <Database size={22} className="text-[#00F0FF]" />,
-      title: "Databases & SQL Systems",
+      icon: <Database size={20} className="text-[#1C5B85]" />,
+      iconBg: "bg-[#A9D8F5]/40 border-[#A9D8F5]/80",
+      title: "SQL & Persistence",
       description:
-        "Relational database design, query optimization with MySQL & SQL, and cloud persistence with Firebase & Supabase.",
+        "Relational database modeling with MySQL, complex querying, indexing, JDBC transactions, and cloud datastores.",
     },
     {
-      icon: <ShieldCheck size={22} className="text-[#38BDF8]" />,
-      title: "Full-Stack & Cloud Integration",
+      icon: <ShieldCheck size={20} className="text-[#4E378C]" />,
+      iconBg: "bg-[#C9B6F2]/35 border-[#C9B6F2]/80",
+      title: "Distributed Workflows",
       description:
-        "Integrating backends with React.js & Next.js interfaces, AWS cloud services (EC2, S3, IAM), and Git version control workflows.",
+        "Asynchronous task queues using Apache Kafka, Docker containerization, and Git collaborative version control.",
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.12,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: shouldReduceMotion ? 0 : 25,
-      filter: shouldReduceMotion ? "none" : "blur(4px)",
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  };
+  const metricColors = [
+    { label: "text-[#8C244C]", hoverBorder: "hover:border-[#F6B8D0]" },
+    { label: "text-[#4E378C]", hoverBorder: "hover:border-[#C9B6F2]" },
+    { label: "text-[#1C5B85]", hoverBorder: "hover:border-[#A9D8F5]" },
+    { label: "text-[#196B45]", hoverBorder: "hover:border-[#B9E6D0]" },
+  ];
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="py-12 md:py-16 relative overflow-hidden bg-[#FFF9F3]">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        {/* Section Header */}
+        
+        {/* Cute Editorial Section Header with Viewport Reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col mb-16"
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col mb-10 max-w-3xl"
         >
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-xs font-mono font-semibold tracking-widest text-[#00F0FF] uppercase">
-              01 // Profile
+            <span className="text-xs font-mono font-bold tracking-widest text-[#A13A64] uppercase flex items-center gap-1.5">
+              <span>01 // Background &amp; Philosophy</span>
+              <span className="text-[#C9B6F2]">✨</span>
             </span>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="h-[1px] w-12 bg-[#00F0FF]/40 origin-left"
-            />
+            <div className="h-[2px] w-14 bg-gradient-to-r from-[#F6B8D0] via-[#FFC9A9] to-[#C9B6F2] rounded-full" />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white uppercase">
-            About <span className="text-zinc-400 font-light">My Background</span>
+          <h2 className="font-serif text-4xl sm:text-5xl font-extrabold tracking-tight text-[#292326]">
+            Engineering Philosophy &amp; <br />
+            <span className="rainbow-gradient-text italic font-normal">Technical Foundation</span>
           </h2>
+          <p className="mt-3 text-base text-[#292326] font-normal leading-relaxed">
+            Architecting robust software systems with object-oriented rigor, clean code conventions, and high-performance server-side foundations.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Narrative (7 Cols) */}
+        {/* Two-Column Editorial Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Left Narrative Card (7 Cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 space-y-6"
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7"
           >
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#080D1A]/90 border border-cyan-900/30 relative overflow-hidden group hover:border-[#00F0FF]/40 transition-all duration-300 shadow-xl shadow-black/40">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-[#00F0FF]/5 rounded-bl-full pointer-events-none group-hover:bg-[#00F0FF]/10 transition-colors duration-500" />
+            <div className="p-7 sm:p-9 rounded-2xl bg-white border border-[#EBDCD2] shadow-2xs relative hover:shadow-[0_4px_20px_rgba(201,182,242,0.15)] transition-shadow">
+              <div className="flex items-center justify-between pb-5 mb-5 border-b border-[#EBDCD2]">
+                <div className="flex items-center gap-2">
+                  <GraduationCap size={20} className="text-[#A13A64]" />
+                  <span className="font-serif font-bold text-lg text-[#292326]">
+                    MCA Graduate &amp; Java Developer
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 text-xs font-mono font-medium text-[#292326]">
+                  <MapPin size={14} className="text-[#8C244C]" />
+                  <span>{location}</span>
+                </div>
+              </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                <span>MCA Graduate &amp; Java Developer</span>
-              </h3>
-
-              <div className="space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
+              <div className="space-y-4 text-base text-[#292326] leading-[1.68] font-normal">
                 {aboutParagraphs.map((para, idx) => (
-                  <motion.p
-                    key={idx}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 * idx }}
-                    className="text-zinc-400 leading-relaxed"
-                  >
+                  <p key={idx}>
                     {para}
-                  </motion.p>
+                  </p>
                 ))}
               </div>
 
-              {/* Action buttons inside card */}
-              <div className="pt-6 mt-6 border-t border-cyan-900/30 flex flex-wrap items-center gap-4">
+              {/* Action Ribbon inside Card */}
+              <div className="pt-6 mt-6 border-t border-[#EBDCD2] flex flex-wrap items-center justify-between gap-4">
                 <motion.a
                   href={resumeUrl}
                   download={resumeDownloadName}
                   aria-label="Download Deepanjali Ishte Java Developer Resume"
-                  whileHover={{ scale: 1.04, y: -1 }}
-                  whileTap={{ scale: 0.96 }}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#00F0FF] hover:from-[#1D4ED8] hover:to-[#00D4E0] text-black font-semibold text-xs font-mono tracking-wide transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:shadow-[0_0_25px_rgba(0,240,255,0.5)] cursor-pointer"
+                  whileHover={shouldReduceMotion ? {} : { y: -2, scale: 1.01 }}
+                  whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#F6B8D0] via-[#FFC9A9] to-[#C9B6F2] hover:opacity-95 text-[#292326] text-xs font-mono font-bold tracking-wider transition-all shadow-xs cursor-pointer"
                 >
-                  <Download size={14} />
-                  <span>DOWNLOAD FULL RESUME</span>
+                  <Download size={14} className="text-[#8C244C] group-hover:translate-y-0.5 transition-transform" />
+                  <span>DOWNLOAD VERIFIED RESUME</span>
                 </motion.a>
 
-                <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
-                  <MapPin size={14} className="text-[#00F0FF]" />
-                  <span>{location}</span>
-                </div>
+                <span className="text-xs font-mono font-bold text-[#A13A64] flex items-center gap-1">
+                  <span>P.E.S. Modern College of Engg.</span>
+                  <span className="text-[#C9B6F2]">✦</span>
+                </span>
               </div>
             </div>
-
-            {/* Metrics Ribbon with Interactive Hover */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2"
-            >
-              {metrics.map((metric, idx) => (
-                <motion.div
-                  key={idx}
-                  variants={itemVariants}
-                  whileHover={{ y: -3, borderColor: "rgba(0, 240, 255, 0.4)" }}
-                  className="p-4 rounded-xl bg-[#0B132B]/70 border border-cyan-900/30 transition-all cursor-default"
-                >
-                  <div className="text-[10px] font-mono uppercase tracking-widest text-cyan-400/70 mb-1">
-                    {metric.label}
-                  </div>
-                  <div className="text-sm font-bold text-white tracking-tight mb-0.5">
-                    {metric.value}
-                  </div>
-                  <div className="text-[11px] text-zinc-400 truncate">{metric.sub}</div>
-                </motion.div>
-              ))}
-            </motion.div>
           </motion.div>
 
-          {/* Right Engineering Pillars (5 Cols) with Stagger */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            className="lg:col-span-5 space-y-4"
-          >
-            <div className="text-xs font-mono uppercase tracking-widest text-cyan-400/70 mb-2">
-              Core Competencies &amp; Focus Areas
+          {/* Right Engineering Pillars & Metrics (5 Cols) */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="text-xs font-mono font-bold tracking-wider text-[#A13A64] uppercase mb-1 flex items-center gap-1.5">
+              <span>// Engineering Pillars</span>
+              <span className="text-[#C9B6F2]">🌈</span>
             </div>
 
             {pillars.map((pillar, idx) => (
               <motion.div
                 key={idx}
-                variants={itemVariants}
-                whileHover={{ x: 6, borderColor: "rgba(0, 240, 255, 0.4)" }}
-                transition={{ duration: 0.2 }}
-                className="p-5 rounded-xl bg-[#080D1A]/90 border border-cyan-900/30 transition-all flex items-start gap-4 cursor-default group"
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: 18 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.55, delay: idx * 0.09, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={shouldReduceMotion ? {} : { y: -2, x: 2 }}
+                className="p-5 rounded-xl bg-white border border-[#EBDCD2] hover:border-[#F6B8D0] transition-all group shadow-2xs hover:shadow-[0_4px_16px_rgba(246,184,208,0.2)]"
               >
-                <div className="p-2.5 rounded-lg bg-[#0B132B] border border-cyan-900/40 flex-shrink-0 group-hover:bg-[#00F0FF]/10 group-hover:border-[#00F0FF]/30 transition-colors">
-                  {pillar.icon}
-                </div>
-                <div>
-                  <h4 className="text-base font-semibold text-white mb-1 group-hover:text-[#00F0FF] transition-colors">
-                    {pillar.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
-                    {pillar.description}
-                  </p>
+                <div className="flex items-start gap-4">
+                  <div className={`w-10 h-10 rounded-xl ${pillar.iconBg} border flex items-center justify-center shrink-0 transition-transform group-hover:scale-105`}>
+                    {pillar.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-serif font-bold text-base text-[#292326] mb-1 group-hover:text-[#A13A64] transition-colors">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#292326] leading-relaxed font-normal">
+                      {pillar.description}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+
+            {/* 2 x 2 Information Cards Grid directly below Distributed Workflows */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              {metrics.map((metric, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={shouldReduceMotion ? {} : { y: -2 }}
+                  className={`p-4 rounded-xl bg-white border border-[#EBDCD2] ${metricColors[idx % metricColors.length].hoverBorder} transition-all shadow-2xs hover:shadow-xs`}
+                >
+                  <div className={`text-xs font-mono uppercase tracking-wider ${metricColors[idx % metricColors.length].label} font-bold mb-1 flex items-center gap-1`}>
+                    <span>{metric.label}</span>
+                    <span className="text-[10px]">✨</span>
+                  </div>
+                  <div className="font-serif font-bold text-base sm:text-lg text-[#292326] leading-snug">
+                    {metric.value}
+                  </div>
+                  <div className="text-xs text-[#574F54] mt-1 font-mono font-medium">
+                    {metric.sub}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

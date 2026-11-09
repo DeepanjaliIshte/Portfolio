@@ -1,9 +1,5 @@
 import Navbar from "../components/Navbar";
 import AmbientBackground from "../components/AmbientBackground";
-import Floating3DObjects from "../components/Floating3DObjects";
-import CustomCursor from "../components/CustomCursor";
-import CinematicIntro from "../components/CinematicIntro";
-import RuntimeTelemetryHud from "../components/RuntimeTelemetryHud";
 import SectionDivider from "../components/SectionDivider";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -18,23 +14,14 @@ import WhatsAppButton from "../components/WhatsAppButton";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#030712] text-[#EDEDED] overflow-x-hidden selection:bg-[#00F0FF]/30 selection:text-white">
-      {/* First-Load WOW Factor Cinematic Intro Shutter */}
-      <CinematicIntro />
-
-      {/* Desktop Custom Ambient Cursor */}
-      <CustomCursor />
-
-      {/* Atmospheric background lighting, particles, 3D horizon grid & neural network */}
+    <div className="relative min-h-screen bg-[#FFF9F3] text-[#292326] overflow-x-hidden selection:bg-[#F6B8D0] selection:text-[#292326]">
+      {/* Subtle Warm Ivory Atmosphere */}
       <AmbientBackground />
 
-      {/* Futuristic Floating 3D Geometric Objects (Wireframe Octahedron, Gyro Rings, Cube) */}
-      <Floating3DObjects />
-
-      {/* Fixed Sticky Navigation */}
+      {/* Editorial Navigation */}
       <Navbar />
 
-      {/* Main Sections */}
+      {/* Main Content Sections */}
       <main className="relative z-10 flex flex-col w-full">
         <Hero />
         <SectionDivider />
@@ -52,10 +39,7 @@ export default function Home() {
         <Contact />
       </main>
 
-      {/* Interactive Runtime Telemetry Console (Surprise Moment) */}
-      <RuntimeTelemetryHud />
-
-      {/* Footer & Chat CTA */}
+      {/* Editorial Footer & Connect */}
       <Footer />
       <WhatsAppButton />
     </div>

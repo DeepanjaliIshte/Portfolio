@@ -1,22 +1,25 @@
 import Link from "next/link";
+import { ArrowLeft, Sparkles } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#030712] text-white px-6 text-center">
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F0FF]/10 border border-[#00F0FF]/30 text-[#00F0FF] text-xs font-mono tracking-widest uppercase mb-6">
-        404 — PAGE NOT FOUND
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#FFF9F3] text-[#292326] px-6 text-center">
+      <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#EBDCD2] text-[#8C244C] text-xs font-mono tracking-widest uppercase mb-6 font-semibold shadow-2xs">
+        <Sparkles size={12} className="text-[#C9B6F2]" />
+        <span>404 — PAGE NOT FOUND</span>
       </div>
-      <h1 className="text-6xl md:text-8xl font-black tracking-tight text-white mb-4">
-        Lost in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#38BDF8]">Space</span>
+      <h1 className="font-serif text-5xl md:text-7xl font-extrabold tracking-tight text-[#292326] mb-4">
+        Page Not <span className="rainbow-gradient-text italic font-normal">Located</span>
       </h1>
-      <p className="text-gray-400 max-w-md text-base md:text-lg mb-8 leading-relaxed">
-        The page you are looking for doesn&apos;t exist or has been relocated to another galaxy.
+      <p className="text-[#574F54] max-w-md text-base mb-8 leading-relaxed font-normal">
+        The requested document or route does not exist. Please return to the main developer portfolio.
       </p>
       <Link
         href="/"
-        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#0066FF] to-[#00F0FF] text-black font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] transition-all"
+        className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#F6B8D0] via-[#FFC9A9] to-[#C9B6F2] hover:opacity-95 text-[#292326] font-mono font-bold text-xs tracking-wider transition-all shadow-md shadow-[#F6B8D0]/30"
       >
-        Return Home
+        <ArrowLeft size={14} className="text-[#8C244C]" />
+        <span>Return to Deepanjali&apos;s Portfolio ✨</span>
       </Link>
     </div>
   );

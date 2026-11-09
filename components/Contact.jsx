@@ -8,8 +8,8 @@ import {
   Copy,
   Check,
   ArrowUpRight,
-  Sparkles,
   ExternalLink,
+  Sparkles,
 } from "lucide-react";
 import { Github, Linkedin, Instagram } from "./Icons";
 import { portfolioData } from "../data/portfolioData";
@@ -20,9 +20,9 @@ export default function Contact() {
   const [copied, setCopied] = useState(false);
 
   const defaultMailto = `mailto:${email}?subject=${encodeURIComponent(
-    "Software Developer Opportunity / Inquiry - Deepanjali Ishte"
+    "Java Developer Opportunity - Deepanjali R. Ishte"
   )}&body=${encodeURIComponent(
-    "Hi Deepanjali,\n\nI reviewed your developer portfolio and would like to connect with you regarding an opportunity / project discussion.\n\nBest regards,\n[Your Name]\n[Your Company / Organization]"
+    "Hi Deepanjali,\n\nI reviewed your portfolio and would like to discuss an opportunity.\n\nBest regards,\n[Your Name]"
   )}`;
 
   const handleCopyEmail = async () => {
@@ -51,310 +51,252 @@ export default function Contact() {
     {
       label: "Junior Java Developer Role",
       subject: "Junior Java Developer Opportunity - Interview Request",
+      hoverBorder: "hover:border-[#F6B8D0]",
     },
     {
       label: "Associate Software Engineer",
-      subject: "Associate Software Engineer Opportunity - Deepanjali Ishte",
+      subject: "Associate Software Engineer Opportunity - Deepanjali R. Ishte",
+      hoverBorder: "hover:border-[#C9B6F2]",
     },
     {
       label: "Backend / Spring Boot Project",
       subject: "Backend / Spring Boot Project Discussion",
+      hoverBorder: "hover:border-[#A9D8F5]",
     },
   ];
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
+    <section id="contact" className="py-12 md:py-16 relative overflow-hidden bg-[#FFF9F3]">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        {/* Section Header */}
+        
+        {/* Section Header with Viewport Reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col mb-16 text-center max-w-3xl mx-auto"
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col mb-10 text-center max-w-3xl mx-auto"
         >
           <div className="inline-flex items-center gap-3 mb-3 mx-auto">
-            <span className="text-xs font-mono font-semibold tracking-widest text-[#00F0FF] uppercase">
-              07 // Direct Connect
+            <span className="text-xs font-mono font-bold tracking-widest text-[#A13A64] uppercase flex items-center gap-1.5">
+              <span>07 // Direct Communication</span>
+              <span className="text-[#C9B6F2]">✨</span>
             </span>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="h-[1px] w-12 bg-[#00F0FF]/40"
-            />
+            <div className="h-[2px] w-14 bg-gradient-to-r from-[#F6B8D0] via-[#FFC9A9] to-[#C9B6F2] rounded-full" />
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase leading-tight mb-4">
-            Have an opportunity? <br />
-            <span className="text-cyan-gradient">Let&apos;s build something meaningful.</span>
+          <h2 className="font-serif text-4xl sm:text-5xl font-extrabold tracking-tight text-[#292326] leading-tight mb-4">
+            Have an Opportunity? <br />
+            <span className="rainbow-gradient-text italic font-normal">Let&apos;s Build Something Meaningful.</span>
           </h2>
 
-          <p className="text-zinc-400 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto">
-            I am currently open to Junior Java Developer, Backend Developer, and Software Engineer positions. Connect directly via email or professional channels below.
+          <p className="text-base text-[#292326] font-normal leading-relaxed max-w-2xl mx-auto">
+            Currently open to Junior Java Developer, Backend Developer, and Software Engineer positions. Connect directly via email or verified channels below.
           </p>
         </motion.div>
 
-        {/* Main Grid: Heroic Email Chamber + Profiles */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto items-stretch">
-          {/* Primary Featured Email Chamber (7 Cols) */}
+        {/* Contact Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto items-stretch">
+          
+          {/* Main Direct Email Card (7 Cols) */}
           <motion.div
-            initial={{ opacity: 0, x: -30, filter: shouldReduceMotion ? "none" : "blur(6px)" }}
-            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 flex flex-col justify-between p-7 sm:p-10 rounded-2xl bg-[#080D1A]/95 border border-cyan-900/40 shadow-2xl relative overflow-hidden group hover:border-[#00F0FF]/40 transition-all duration-300"
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7 p-7 sm:p-9 rounded-2xl bg-white border border-[#EBDCD2] shadow-2xs hover:shadow-[0_8px_25px_rgba(201,182,242,0.2)] transition-shadow flex flex-col justify-between"
           >
-            {/* Top Cyan Accent Laser Line */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#0066FF] via-[#00F0FF] to-transparent shadow-[0_0_12px_#00F0FF]" />
-
-            {/* Ambient Background Radial Glow */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-[#00F0FF]/5 rounded-bl-full pointer-events-none group-hover:bg-[#00F0FF]/10 transition-colors duration-500" />
-
             <div>
-              {/* Header Badge */}
-              <div className="flex items-center justify-between gap-3 mb-6">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00F0FF]/10 border border-[#00F0FF]/30 text-[#00F0FF] text-xs font-mono uppercase tracking-wider">
-                  <Mail size={13} />
-                  <span>Primary Email Inbox</span>
-                </div>
-                <span className="text-[11px] font-mono text-zinc-500 uppercase flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Available for Hire
+              <div className="flex items-center justify-between gap-3 mb-5">
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F6B8D0]/30 border border-[#F6B8D0]/80 text-[#8C244C] text-xs font-mono font-bold uppercase tracking-wider">
+                  <Mail size={12} className="text-[#8C244C]" />
+                  <span>Primary Inbox</span>
+                </span>
+                <span className="text-xs font-mono text-[#A13A64] font-bold flex items-center gap-1">
+                  <span>• Available for Hire</span>
+                  <span className="text-xs">✨</span>
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
+              <h3 className="font-serif text-2xl font-bold text-[#292326] mb-2">
                 Send a Direct Message
               </h3>
-              <p className="text-sm text-zinc-400 leading-relaxed font-normal mb-8">
-                Skip intermediate web forms. Click below to launch your default email client with a pre-formatted template, or copy my email address to reach out on your own terms.
+              <p className="text-sm text-[#292326] font-normal mb-6 leading-relaxed">
+                Launch your default email client with a pre-configured template, or copy the verified email address.
               </p>
 
-              {/* Clickable Email Display Box */}
-              <div className="p-5 sm:p-6 rounded-xl bg-[#0B132B] border border-cyan-900/50 mb-8 relative group/mail transition-all hover:border-[#00F0FF]/60 hover:shadow-[0_0_25px_rgba(0,240,255,0.15)]">
-                <div className="text-[11px] font-mono text-cyan-400/80 uppercase tracking-widest mb-1.5 flex items-center justify-between">
-                  <span>Verified Recipient Email</span>
-                  <span className="text-zinc-500 text-[10px]">Click to launch mailto</span>
+              {/* Clickable Email Display */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#FFF9F3] border border-[#EBDCD2] mb-6">
+                <div className="text-xs font-mono text-[#A13A64] uppercase tracking-wider mb-1 font-bold flex items-center justify-between">
+                  <span>Verified Recipient Address</span>
+                  <span className="text-[#574F54] font-normal text-xs">Click to open mailto</span>
                 </div>
                 <a
                   href={defaultMailto}
-                  className="flex items-center justify-between gap-3 text-lg sm:text-2xl font-bold font-mono text-white group-hover/mail:text-[#00F0FF] transition-colors break-all"
-                  aria-label={`Send email to ${email}`}
+                  className="font-mono font-bold text-lg sm:text-xl text-[#292326] hover:text-[#A13A64] transition-colors flex items-center justify-between break-all"
                 >
                   <span>{email}</span>
-                  <ArrowUpRight size={22} className="text-cyan-400 flex-shrink-0 group-hover/mail:translate-x-1 group-hover/mail:-translate-y-1 transition-transform" />
+                  <ArrowUpRight size={18} className="text-[#8C244C] shrink-0" />
                 </a>
               </div>
 
-              {/* Dual Action Buttons: Send Email (Mailto) & Copy Email */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-8">
-                {/* Stylish Send Email Button */}
+              {/* Dual Action Buttons: Launch Mailto & Copy Email */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6">
                 <motion.a
                   href={defaultMailto}
-                  whileHover={{ scale: 1.04, y: -2 }}
-                  whileTap={{ scale: 0.96 }}
-                  className="flex-1 flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#00F0FF] hover:from-[#1D4ED8] hover:to-[#00D4E0] text-black font-semibold text-xs font-mono uppercase tracking-wider transition-all shadow-[0_0_25px_rgba(0,240,255,0.35)] hover:shadow-[0_0_35px_rgba(0,240,255,0.6)] cursor-pointer"
-                  aria-label="Send email using default mail application"
+                  whileHover={shouldReduceMotion ? {} : { y: -2, scale: 1.01 }}
+                  whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-gradient-to-r from-[#F6B8D0] via-[#FFC9A9] to-[#C9B6F2] hover:opacity-95 text-[#292326] text-xs font-mono font-bold tracking-wider transition-all shadow-md shadow-[#F6B8D0]/30 cursor-pointer"
                 >
-                  <Send size={15} className="stroke-[2.5]" />
-                  <span>Send Email (Mailto)</span>
+                  <Send size={13} className="text-[#8C244C]" />
+                  <span>OPEN IN EMAIL CLIENT</span>
                 </motion.a>
 
-                {/* Verified Copy Email Button */}
                 <motion.button
                   onClick={handleCopyEmail}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className={`flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border text-xs font-mono font-medium tracking-wide transition-all cursor-pointer ${
-                    copied
-                      ? "bg-emerald-950/60 border-emerald-500/60 text-emerald-300 shadow-[0_0_20px_rgba(16,185,129,0.3)]"
-                      : "bg-[#0B132B] hover:bg-[#111C3D] border-cyan-900/50 hover:border-[#00F0FF]/60 text-zinc-200 hover:text-[#00F0FF] shadow-sm hover:shadow-[0_0_15px_rgba(0,240,255,0.2)]"
-                  }`}
-                  aria-label="Copy email address to clipboard"
+                  whileHover={shouldReduceMotion ? {} : { y: -2 }}
+                  whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white border border-[#EBDCD2] hover:border-[#F6B8D0] text-[#292326] text-xs font-mono font-bold tracking-wider transition-all cursor-pointer shadow-2xs hover:shadow-[0_4px_14px_rgba(246,184,208,0.25)]"
                 >
-                  {copied ? (
-                    <>
-                      <Check size={14} className="text-emerald-400 stroke-[2.5]" />
-                      <span>Copied to Clipboard!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy size={14} className="text-[#00F0FF]" />
-                      <span>Copy Email</span>
-                    </>
-                  )}
+                  {copied ? <Check size={14} className="text-emerald-700" /> : <Copy size={13} className="text-[#A13A64]" />}
+                  <span>{copied ? "COPIED TO CLIPBOARD ✨" : "COPY EMAIL"}</span>
                 </motion.button>
               </div>
 
-              {/* Pre-Formatted Subject Shortcuts */}
+              {/* Preset Subject Templates */}
               <div>
-                <div className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-                  <Sparkles size={12} className="text-[#00F0FF]" />
-                  <span>Quick-Launch Subject Presets:</span>
-                </div>
+                <span className="text-xs font-mono text-[#292326] uppercase tracking-wider block mb-2 font-bold flex items-center gap-1">
+                  <span>Select a topic preset:</span>
+                  <span className="text-xs text-[#C9B6F2]">✦</span>
+                </span>
                 <div className="flex flex-wrap gap-2">
-                  {subjectPresets.map((preset, idx) => (
+                  {subjectPresets.map((preset, pIdx) => (
                     <motion.a
-                      key={idx}
+                      key={pIdx}
                       href={`mailto:${email}?subject=${encodeURIComponent(preset.subject)}`}
-                      whileHover={{ scale: 1.04, y: -1 }}
-                      whileTap={{ scale: 0.97 }}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0B132B] border border-cyan-900/40 text-[11px] font-mono text-zinc-300 hover:text-[#00F0FF] hover:border-[#00F0FF]/50 hover:bg-[#00F0FF]/10 transition-all cursor-pointer"
+                      whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
+                      whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
+                      className={`px-3.5 py-1.5 rounded-full bg-[#FFF9F3] border border-[#EBDCD2] ${preset.hoverBorder} hover:text-[#A13A64] text-xs font-mono font-semibold text-[#292326] transition-colors`}
                     >
-                      <span>+ {preset.label}</span>
+                      {preset.label}
                     </motion.a>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Guaranteed Response Time Note */}
-            <div className="pt-6 mt-8 border-t border-cyan-900/30 flex items-center justify-between text-xs font-mono text-zinc-400">
-              <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF] shadow-[0_0_8px_#00F0FF]" />
-                Direct inbox connection
-              </span>
-              <span className="text-cyan-400/80">Typical response: &lt; 24h</span>
+            <div className="pt-5 mt-6 border-t border-[#EBDCD2] flex items-center justify-between text-xs font-mono text-[#292326] font-medium">
+              <div className="flex items-center gap-1.5">
+                <MapPin size={13} className="text-[#8C244C]" />
+                <span>{location}</span>
+              </div>
+              <span className="text-[#A13A64] font-bold">Response: ~24 hours 🌈</span>
             </div>
           </motion.div>
 
-          {/* Right Column: Verified Profiles & Location (5 Cols) */}
+          {/* Social Profiles & Community Card (5 Cols) */}
           <motion.div
-            initial={{ opacity: 0, x: 30, filter: shouldReduceMotion ? "none" : "blur(6px)" }}
-            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex flex-col justify-between space-y-4"
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 space-y-4"
           >
-            {/* Verified Location Card */}
-            <motion.div
-              whileHover={{ y: -3, borderColor: "rgba(0, 240, 255, 0.4)" }}
-              className="p-6 rounded-2xl bg-[#080D1A]/95 border border-cyan-900/40 transition-all shadow-xl group"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#0B132B] border border-cyan-900/50 flex items-center justify-center text-[#00F0FF] flex-shrink-0 group-hover:bg-[#00F0FF]/15 group-hover:border-[#00F0FF]/50 transition-colors shadow-sm">
-                  <MapPin size={22} />
-                </div>
-                <div className="flex-1">
-                  <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-400/80 mb-1">
-                    Location
-                  </div>
-                  <h4 className="text-base sm:text-lg font-bold text-white mb-1 group-hover:text-[#00F0FF] transition-colors">
-                    {location}
-                  </h4>
-                  <p className="text-xs text-zinc-400 leading-relaxed font-normal">
-                    Available for on-site &amp; hybrid positions in Pune / Maharashtra, as well as remote software engineering roles worldwide.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* LinkedIn Profile Card */}
-            <motion.a
-              href={linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -3, borderColor: "rgba(0, 240, 255, 0.4)" }}
-              whileTap={{ scale: 0.98 }}
-              className="p-6 rounded-2xl bg-[#080D1A]/95 border border-cyan-900/40 transition-all shadow-xl flex items-center justify-between group cursor-pointer"
-              aria-label="Deepanjali Ishte LinkedIn Profile"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#0B132B] border border-cyan-900/50 flex items-center justify-center text-[#00F0FF] flex-shrink-0 group-hover:bg-[#00F0FF]/15 group-hover:border-[#00F0FF]/50 transition-colors">
-                  <Linkedin size={22} />
-                </div>
-                <div>
-                  <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-400/80 mb-0.5">
-                    Professional Network
-                  </div>
-                  <h4 className="text-base font-bold text-white group-hover:text-[#00F0FF] transition-colors">
-                    LinkedIn Profile
-                  </h4>
-                  <span className="text-xs font-mono text-zinc-500">
-                    deepanjali-ishte-071691201
-                  </span>
-                </div>
-              </div>
-              <div className="w-9 h-9 rounded-full bg-[#0B132B] border border-cyan-900/40 flex items-center justify-center text-zinc-400 group-hover:text-white group-hover:border-[#00F0FF]/50 transition-colors">
-                <ExternalLink size={15} />
-              </div>
-            </motion.a>
-
-            {/* GitHub Profile Card */}
+            {/* GitHub Card */}
             <motion.a
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -3, borderColor: "rgba(0, 240, 255, 0.4)" }}
-              whileTap={{ scale: 0.98 }}
-              className="p-6 rounded-2xl bg-[#080D1A]/95 border border-cyan-900/40 transition-all shadow-xl flex items-center justify-between group cursor-pointer"
-              aria-label="Deepanjali Ishte GitHub Profile"
+              whileHover={shouldReduceMotion ? {} : { y: -2, x: 2 }}
+              className="p-5 rounded-2xl bg-white border border-[#EBDCD2] hover:border-[#8C244C] transition-all flex items-center justify-between group shadow-2xs hover:shadow-xs block"
             >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#0B132B] border border-cyan-900/50 flex items-center justify-center text-[#00F0FF] flex-shrink-0 group-hover:bg-[#00F0FF]/15 group-hover:border-[#00F0FF]/50 transition-colors">
-                  <Github size={22} />
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-[#F6B8D0]/30 border border-[#F6B8D0]/70 flex items-center justify-center text-[#8C244C] group-hover:scale-105 transition-transform">
+                  <Github size={20} />
                 </div>
                 <div>
-                  <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-400/80 mb-0.5">
-                    Open Source &amp; Code
-                  </div>
-                  <h4 className="text-base font-bold text-white group-hover:text-[#00F0FF] transition-colors">
+                  <div className="font-serif font-bold text-base text-[#292326] group-hover:text-[#8C244C] transition-colors">
                     GitHub Profile
-                  </h4>
-                  <span className="text-xs font-mono text-zinc-500">
-                    DeepanjaliIshte
-                  </span>
+                  </div>
+                  <div className="text-xs font-mono text-[#574F54] font-medium">
+                    github.com/DeepanjaliIshte
+                  </div>
                 </div>
               </div>
-              <div className="w-9 h-9 rounded-full bg-[#0B132B] border border-cyan-900/40 flex items-center justify-center text-zinc-400 group-hover:text-white group-hover:border-[#00F0FF]/50 transition-colors">
-                <ExternalLink size={15} />
-              </div>
+              <ExternalLink size={16} className="text-[#8C244C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </motion.a>
 
-            {/* Instagram Profile Card (DeepCodeWarriors) */}
+            {/* LinkedIn Card */}
+            <motion.a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={shouldReduceMotion ? {} : { y: -2, x: 2 }}
+              className="p-5 rounded-2xl bg-white border border-[#EBDCD2] hover:border-[#1C5B85] transition-all flex items-center justify-between group shadow-2xs hover:shadow-xs block"
+            >
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-[#A9D8F5]/35 border border-[#A9D8F5]/70 flex items-center justify-center text-[#1C5B85] group-hover:scale-105 transition-transform">
+                  <Linkedin size={20} />
+                </div>
+                <div>
+                  <div className="font-serif font-bold text-base text-[#292326] group-hover:text-[#1C5B85] transition-colors">
+                    LinkedIn Network
+                  </div>
+                  <div className="text-xs font-mono text-[#574F54] font-medium">
+                    linkedin.com/in/deepanjali-ishte
+                  </div>
+                </div>
+              </div>
+              <ExternalLink size={16} className="text-[#1C5B85] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </motion.a>
+
+            {/* DeepCodeWarriors Instagram */}
             <motion.a
               href={instagram}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -3, borderColor: "rgba(0, 240, 255, 0.4)" }}
-              whileTap={{ scale: 0.98 }}
-              className="p-6 rounded-2xl bg-[#080D1A]/95 border border-cyan-900/40 transition-all shadow-xl flex items-center justify-between group cursor-pointer"
-              aria-label="DeepCodeWarriors Instagram Profile"
+              whileHover={shouldReduceMotion ? {} : { y: -2, x: 2 }}
+              className="p-5 rounded-2xl bg-white border border-[#EBDCD2] hover:border-[#8C244C] transition-all flex items-center justify-between group shadow-2xs hover:shadow-xs block"
             >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#0B132B] border border-cyan-900/50 flex items-center justify-center text-[#00F0FF] flex-shrink-0 group-hover:bg-[#00F0FF]/15 group-hover:border-[#00F0FF]/50 transition-colors">
-                  <Instagram size={22} />
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-[#FFC9A9]/35 border border-[#FFC9A9]/70 flex items-center justify-center text-[#8C244C] group-hover:scale-105 transition-transform">
+                  <Instagram size={20} />
                 </div>
                 <div>
-                  <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-400/80 mb-0.5">
-                    Coding Community &amp; Tech
+                  <div className="font-serif font-bold text-base text-[#292326] group-hover:text-[#8C244C] transition-colors">
+                    DeepCodeWarriors Community
                   </div>
-                  <h4 className="text-base font-bold text-white group-hover:text-[#00F0FF] transition-colors">
-                    DeepCodeWarriors
-                  </h4>
-                  <span className="text-xs font-mono text-zinc-500">
-                    @deepcodewarriors
-                  </span>
+                  <div className="text-xs font-mono text-[#574F54] font-medium">
+                    instagram.com/deepcodewarriors
+                  </div>
                 </div>
               </div>
-              <div className="w-9 h-9 rounded-full bg-[#0B132B] border border-cyan-900/40 flex items-center justify-center text-zinc-400 group-hover:text-white group-hover:border-[#00F0FF]/50 transition-colors">
-                <ExternalLink size={15} />
-              </div>
+              <ExternalLink size={16} className="text-[#8C244C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </motion.a>
 
-            {/* Fast Response Telemetry Card */}
-            <div className="p-4 rounded-xl bg-[#0B132B]/80 border border-cyan-900/30 flex items-center gap-3">
-              <span className="relative flex h-3 w-3 flex-shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-              </span>
-              <div className="text-xs font-mono text-zinc-300">
-                <span className="text-white font-semibold">Active Status:</span> Inquiries reviewed daily. Direct responses guaranteed.
+            {/* Direct Email Link Card */}
+            <motion.a
+              href={`mailto:${email}`}
+              whileHover={shouldReduceMotion ? {} : { y: -2, x: 2 }}
+              className="p-5 rounded-2xl bg-white border border-[#EBDCD2] hover:border-[#4E378C] transition-all flex items-center justify-between group shadow-2xs hover:shadow-xs block"
+            >
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-[#C9B6F2]/35 border border-[#C9B6F2]/70 flex items-center justify-center text-[#4E378C] group-hover:scale-105 transition-transform">
+                  <Mail size={20} />
+                </div>
+                <div>
+                  <div className="font-serif font-bold text-base text-[#292326] group-hover:text-[#4E378C] transition-colors">
+                    Direct Email
+                  </div>
+                  <div className="text-xs font-mono text-[#574F54] font-medium">
+                    {email}
+                  </div>
+                </div>
               </div>
-            </div>
+              <ArrowUpRight size={16} className="text-[#4E378C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </motion.a>
           </motion.div>
+
         </div>
       </div>
     </section>
